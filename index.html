@@ -417,15 +417,24 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('nav-hidden', y > lastScroll && y > 400);
   lastScroll = y;
 });
+const navMenu = document.querySelector('.nav-menu');
 document.getElementById('navToggle').addEventListener('click', () => {
-  document.querySelector('.nav-menu').classList.toggle('open');
+  navMenu.classList.toggle('open');
 });
+// 点击菜单内任意链接都关闭菜单
+navMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+  });
+});
+// 锚点平滑滚动
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
     e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
+    const t = document.querySelector(href);
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.querySelector('.nav-menu').classList.remove('open');
   });
 });
 document.querySelectorAll('.tab-btn').forEach(btn => {
