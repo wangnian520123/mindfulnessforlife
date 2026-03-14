@@ -265,115 +265,142 @@
       </div>
     </div>
 
-    <!-- 书单：两本延伸阅读 -->
-    <div style="margin-top:3rem;">
+    <!-- 共读书目 Tab 切换 -->
+    <div style="margin-top:3rem;" id="booksTab">
       <h3 style="font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;">共读书目</h3>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
 
-        <!-- 书1：牛津大学正念课中文版 -->
-        <div style="display:flex;gap:1.2rem;background:var(--cream);padding:1.5rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
-          <div style="width:80px;flex-shrink:0;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.12);">
+      <!-- Tab 选择器 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+        <!-- Tab 1 -->
+        <div class="book-tab active" data-tab="book1"
+          style="display:flex;gap:1.2rem;background:var(--white);padding:1.5rem;border-radius:var(--radius-sm);border:2px solid var(--moss);cursor:pointer;transition:all 0.3s;">
+          <div style="width:70px;flex-shrink:0;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
             <img src="assets/book-oxford-mindfulness.jpg" alt="《牛津大学正念课》" style="width:100%;display:block;">
           </div>
           <div>
             <p style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.3rem;">重建生命的智慧</p>
-            <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;">《牛津大学正念课》</h4>
-            <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.6;margin:0;">克里斯蒂娜·费尔德曼<br>威廉·库肯 著 · 马嘉瞳 译</p>
+            <h4 style="font-family:var(--font-serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;">《牛津大学正念课》</h4>
+            <p style="font-size:0.8rem;color:var(--ink-muted);line-height:1.5;margin:0;">克里斯蒂娜·费尔德曼<br>威廉·库肯 著 · 马嘉瞳 译</p>
           </div>
         </div>
-
-        <!-- 书2：正念生活 -->
-        <div style="display:flex;gap:1.2rem;background:var(--cream);padding:1.5rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
-          <div style="width:80px;flex-shrink:0;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.12);">
-            <img src="assets/book-mfl-en.jpg" alt="Mindfulness for Life" style="width:100%;display:block;object-fit:contain;background:#f5f5f5;">
+        <!-- Tab 2 -->
+        <div class="book-tab" data-tab="book2"
+          style="display:flex;gap:1.2rem;background:var(--white);padding:1.5rem;border-radius:var(--radius-sm);border:2px solid var(--sand-dark);cursor:pointer;transition:all 0.3s;">
+          <div style="width:70px;flex-shrink:0;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);background:#f5f5f5;">
+            <img src="assets/book-mfl-en.jpg" alt="Mindfulness for Life" style="width:100%;display:block;object-fit:contain;">
           </div>
           <div>
             <p style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.3rem;">正念生活</p>
-            <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;">《Mindfulness for Life》</h4>
-            <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.6;margin:0;">Willem Kuyken, PhD 著</p>
+            <h4 style="font-family:var(--font-serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;">《Mindfulness for Life》</h4>
+            <p style="font-size:0.8rem;color:var(--ink-muted);line-height:1.5;margin:0;">Willem Kuyken, PhD 著</p>
           </div>
         </div>
-
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- 两本书简介 -->
-<section style="padding:var(--section-pad) 0;background:var(--cream);">
-  <div class="container">
-    <div style="display:flex;flex-direction:column;gap:2rem;">
-
-      <div style="background:var(--white);border-radius:var(--radius-sm);border:1px solid var(--sand-dark);padding:2rem;">
+      <!-- 内容面板 1：牛津大学正念课 -->
+      <div class="book-panel" id="book1" style="background:var(--white);border-radius:var(--radius-sm);border:1px solid var(--sand-dark);padding:2rem;">
         <h4 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">《牛津大学正念课：重建生命的智慧》</h4>
         <p style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:1.2rem;">克里斯蒂娜·费尔德曼 · 威廉·库肯 著 &nbsp;|&nbsp; 马嘉瞳 译</p>
         <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:1rem;">生活多烦恼，我们每个人都可能会遇到病痛、抑郁、焦虑、烦躁、怀疑、恐惧、成瘾等，但我们并非一定要与之苦苦相伴，我们可以掌控自己的人生。</p>
         <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:1rem;">牛津大学正念中心主任威廉·库肯和国际知名正念指导老师克里斯蒂娜·费尔德曼，分享重建生命的智慧，陪伴我们穿越生活中常见的苦恼与苦痛，为我们更好地掌控自己的人生提供了路线图。</p>
-        <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;">本书基于正念减压疗法（MBSR）、正念认知疗法（MBCT），融合了古老智慧和心理学知识，更搭配了正念练习及真实蜕变案例，让我们一步一步靠近那个崩溃的自己，将那个正念的自己带到阳光里，活出友善、慈悲、喜悦和平等心，过上向往的生活。</p>
-
-        <!-- 好评推荐 -->
-        <div style="margin-top:2rem;">
-          <h5 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">好评推荐</h5>
-          <div style="display:flex;flex-direction:column;gap:1rem;">
-            <div style="border-left:3px solid var(--sage);padding:1rem 1.5rem;background:var(--cream);border-radius:0 6px 6px 0;">
-              <p style="font-size:0.9rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.5rem;">"一部划时代的巨作。本书以极其细腻又清晰易懂的笔触，阐述了正念的本质与源流，揭示其深厚的伦理根基、临床应用、不断增长的科学证据，以及强大的疗愈潜能。"</p>
-              <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;">—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压疗法（MBSR）创始人</p>
-            </div>
-            <div style="border-left:3px solid var(--sage);padding:1rem 1.5rem;background:var(--cream);border-radius:0 6px 6px 0;">
-              <p style="font-size:0.9rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.5rem;">"作者将他们深厚的冥想修习、精湛的心理学专业与最新的神经科学研究融为一体，绘制出一幅关于心灵的完整地图。本书照亮了正念实践在世俗与灵性层面的广度与转化力量。"</p>
-              <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;">—— 约瑟夫·戈德斯坦（Joseph Goldstein），美国巴瑞内观禅修中心联合创始人</p>
-            </div>
-            <div style="border-left:3px solid var(--sage);padding:1rem 1.5rem;background:var(--cream);border-radius:0 6px 6px 0;">
-              <p style="font-size:0.9rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.5rem;">"这本鼓舞人心的著作，搭建起佛教心理学与当代科学的桥梁。这种整合在当今世界至关重要——它有潜力从根本上转变我们的视角，并为个人与社群缓解痛苦。"</p>
-              <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;">—— 丽贝卡·克莱恩（Rebecca Crane）博士，英国班戈大学正念研究与实践中心主任</p>
-            </div>
-            <div style="border-left:3px solid var(--sage);padding:1rem 1.5rem;background:var(--cream);border-radius:0 6px 6px 0;">
-              <p style="font-size:0.9rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.5rem;">"本书为21世纪的正念实践，提供了一幅迫切需要的全景图。对于所有正念取向的学生与教师而言，这本书都是必读之作。"</p>
-              <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;">—— 马克·威廉姆斯（Mark Williams）博士，英国牛津大学临床心理学名誉教授</p>
-            </div>
+        <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:2rem;">本书基于正念减压疗法（MBSR）、正念认知疗法（MBCT），融合了古老智慧和心理学知识，更搭配了正念练习及真实蜕变案例，让我们一步一步靠近那个崩溃的自己，将那个正念的自己带到阳光里，活出友善、慈悲、喜悦和平等心，过上向往的生活。</p>
+        <h5 style="font-family:var(--font-serif);font-size:0.85rem;font-weight:600;color:var(--ink);letter-spacing:0.1em;margin-bottom:1rem;">好评推荐</h5>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"一部划时代的巨作。本书以极其细腻又清晰易懂的笔触，阐述了正念的本质与源流，揭示其深厚的伦理根基、临床应用、不断增长的科学证据，以及强大的疗愈潜能。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压疗法（MBSR）创始人</p>
+          </div>
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"作者将他们深厚的冥想修习、精湛的心理学专业与最新的神经科学研究融为一体，绘制出一幅关于心灵的完整地图。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 约瑟夫·戈德斯坦（Joseph Goldstein），美国巴瑞内观禅修中心联合创始人</p>
+          </div>
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"本书为21世纪的正念实践，提供了一幅迫切需要的全景图。对于所有正念取向的学生与教师而言，这本书都是必读之作。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 马克·威廉姆斯（Mark Williams）博士，英国牛津大学临床心理学名誉教授</p>
+          </div>
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"这本鼓舞人心的著作，搭建起佛教心理学与当代科学的桥梁，有潜力从根本上转变我们的视角，并为个人与社群缓解痛苦。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 丽贝卡·克莱恩（Rebecca Crane）博士，英国班戈大学正念研究与实践中心主任</p>
           </div>
         </div>
-
-        <!-- 作者 & 译者简介 -->
-        <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;">
-          <div style="background:var(--cream);padding:1.5rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
-            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
-              <div style="width:44px;height:44px;border-radius:50%;background:var(--moss);display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;flex-shrink:0;">✍</div>
-              <div><h5 style="font-family:var(--font-serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin:0;">克里斯蒂娜·费尔德曼</h5><p style="font-size:0.78rem;color:var(--ink-muted);margin:0;">Christina Feldman · 作者</p></div>
-            </div>
-            <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.7;margin:0;">正念领域知名资深指导老师。曾在英国埃克塞特大学与荷兰拉德堡德大学带领多个正念研究生项目，是英国菩提学院（Bodhi College）的核心导师，深度参与古老智慧与当代正念之间的对话。</p>
+        <h5 style="font-family:var(--font-serif);font-size:0.85rem;font-weight:600;color:var(--ink);letter-spacing:0.1em;margin-bottom:1rem;">作者 &amp; 译者</h5>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
+          <div style="background:var(--cream);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
+            <h6 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">克里斯蒂娜·费尔德曼 <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">· 作者</span></h6>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.7;margin:0;">正念领域知名资深指导老师。曾在英国埃克塞特大学与荷兰拉德堡德大学带领多个正念研究生项目，是英国菩提学院（Bodhi College）核心导师。</p>
           </div>
-          <div style="background:var(--cream);padding:1.5rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
-            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
-              <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--sage);"><img src="assets/willem-kuyken.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
-              <div><h5 style="font-family:var(--font-serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin:0;">威廉·库肯</h5><p style="font-size:0.78rem;color:var(--ink-muted);margin:0;">Willem Kuyken · 作者</p></div>
-            </div>
-            <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.7;margin:0;">英国牛津大学正念与心理科学教授（Ritblat讲席教授）、正念中心主任。已发表150余篇学术期刊论文，多年入选全球高被引科学家前1%。著有《正念生活》，合著《牛津大学正念课：重建生命的智慧》。</p>
+          <div style="background:var(--cream);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
+            <h6 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">威廉·库肯 <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">· 作者</span></h6>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.7;margin:0;">英国牛津大学正念与心理科学教授（Ritblat讲席教授）、正念中心主任。已发表150余篇学术期刊论文，多年入选全球高被引科学家前1%。</p>
           </div>
-          <div style="background:var(--cream);padding:1.5rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
-            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
-              <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--sage);"><img src="assets/ma-jiatong.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
-              <div><h5 style="font-family:var(--font-serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin:0;">马嘉瞳</h5><p style="font-size:0.78rem;color:var(--ink-muted);margin:0;">译者</p></div>
-            </div>
-            <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.7;margin:0;">毕业于南开大学。牛津正念基金会MBCT认证老师，美国马萨诸塞大学正念中心MBSR合格师资，英国正念网络注册督导师，班戈大学签约正念师资培训师。现任中国生命关怀协会与北京心理卫生协会静观专委会常务委员。</p>
+          <div style="background:var(--cream);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
+            <h6 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">马嘉瞳 <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">· 译者</span></h6>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.7;margin:0;">牛津正念基金会MBCT认证老师，MBSR合格师资，英国正念网络注册督导师。现任中国生命关怀协会与北京心理卫生协会静观专委会常务委员。</p>
           </div>
         </div>
       </div>
 
-      <div style="background:var(--white);border-radius:var(--radius-sm);border:1px solid var(--sand-dark);padding:2rem;">
+      <!-- 内容面板 2：正念生活 -->
+      <div class="book-panel" id="book2" style="display:none;background:var(--white);border-radius:var(--radius-sm);border:1px solid var(--sand-dark);padding:2rem;">
         <h4 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">《正念生活》Mindfulness for Life</h4>
         <p style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:1.2rem;">威廉·库肯 著 &nbsp;|&nbsp; 马嘉瞳 译</p>
         <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:1rem;">正念的入门非常简单，人们往往几乎立刻就能感受到益处。然而，为何许多最初的热情者在短时间后就中断了练习？牛津大学教授威廉·库肯指出，这是因为传统的正念训练与我们的日常生活距离过远。</p>
-        <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:1.5rem;">这本"新一代"正念指南将正念真正带回日常，通过易于融入生活的方式教授核心技能，直接触及日常的挑战。库肯博士为读者提供了一块块"踏脚石"，帮助你建立一套可持续、有目标感且充满回报的个人练习——不仅是当下，更能受用多年。</p>
-        <div style="border-left:3px solid var(--sage);padding:1rem 1.5rem;background:var(--cream);border-radius:0 6px 6px 0;">
-          <p style="font-size:0.9rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0;">"这是一本值得信赖且易于使用的路线图，指导我们以更加具备意图、充满智慧地应对生活的起起伏伏。"</p>
-          <p style="font-size:0.82rem;color:var(--ink-muted);margin-top:0.5rem;margin-bottom:0;">—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压课程创始人</p>
+        <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:1rem;">这本"新一代"正念指南将正念真正带回日常，通过易于融入生活的方式教授核心技能，直接触及日常的挑战。库肯博士为读者提供了一块块"踏脚石"，帮助你建立一套可持续、有目标感且充满回报的个人练习——不仅是当下，更能受用多年。</p>
+        <p style="font-size:0.95rem;color:var(--ink-soft);line-height:1.9;margin-bottom:2rem;">本书交织古老智慧与现代科学心理学，收录真实故事、经典引言、反思提问，并提供克服障碍的技巧与引人入胜的正念引导练习，同时配有音频轨与配套网站的视频资料，助你在生活中切实培养并深化正念实践。</p>
+        <h5 style="font-family:var(--font-serif);font-size:0.85rem;font-weight:600;color:var(--ink);letter-spacing:0.1em;margin-bottom:1rem;">好评推荐</h5>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"这是一本值得信赖且易于使用的路线图，指导我们以更加具备意图、充满智慧地应对生活的起起伏伏。最重要的是，学会培养自我主导的能力。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压课程创始人，《正念，此刻是一枝花》作者</p>
+          </div>
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"这本书不仅是关于内在的改变，还教会我们如何生活。Kuyken博士提供了诸多工具，帮助我们从评判、指责和厌恶的心态转向好奇与善意。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— Christina Feldman，《无限心灵》作者</p>
+          </div>
+          <div style="border-left:3px solid var(--sage);padding:0.8rem 1.2rem;background:var(--cream);border-radius:0 6px 6px 0;">
+            <p style="font-size:0.88rem;color:var(--ink);line-height:1.8;font-style:italic;margin:0 0 0.4rem;">"国际知名心理学家威廉·凯肯博士阐释了正念练习为何以及如何能帮助你以重新连接和爱的感受点亮你的生活。无论你是正念初学者还是资深修习者，这都是一本值得珍藏的宝贵之作。"</p>
+            <p style="font-size:0.8rem;color:var(--ink-muted);margin:0;">—— 马克·威廉姆斯（Mark Williams），《正念穿越抑郁之道》合著者</p>
+          </div>
+        </div>
+        <h5 style="font-family:var(--font-serif);font-size:0.85rem;font-weight:600;color:var(--ink);letter-spacing:0.1em;margin-bottom:1rem;">作者 &amp; 译者</h5>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
+          <div style="background:var(--cream);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
+            <h6 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">威廉·库肯 <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">· 作者</span></h6>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.7;margin:0;">英国牛津大学正念与心理科学教授（Ritblat讲席教授）、正念中心主任。已发表150余篇学术期刊论文，多年入选全球高被引科学家前1%。著有《正念生活》，合著《牛津大学正念课：重建生命的智慧》。</p>
+          </div>
+          <div style="background:var(--cream);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--sand-dark);">
+            <h6 style="font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;">马嘉瞳 <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">· 译者</span></h6>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.7;margin:0;">牛津正念基金会MBCT认证老师，MBSR合格师资，英国正念网络注册督导师，班戈大学签约正念师资培训师。现任中国生命关怀协会与北京心理卫生协会静观专委会常务委员。</p>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<style>
+.book-tab:hover { border-color: var(--sage) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.book-tab.active { border-color: var(--moss) !important; box-shadow: 0 4px 16px rgba(61,90,69,0.15); }
+@media(max-width:600px){
+  #booksTab > div:nth-child(2) { grid-template-columns: 1fr; }
+}
+</style>
+<script>
+document.querySelectorAll('.book-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const target = this.dataset.tab;
+    document.querySelectorAll('.book-tab').forEach(t => {
+      t.classList.remove('active');
+      t.style.borderColor = 'var(--sand-dark)';
+    });
+    this.classList.add('active');
+    this.style.borderColor = 'var(--moss)';
+    document.querySelectorAll('.book-panel').forEach(p => p.style.display = 'none');
+    document.getElementById(target).style.display = 'block';
+  });
+});
+</script>
 
 <!-- 读书营招募 -->
 <section class="camp-recruit">
