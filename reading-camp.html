@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《正念生活》共读营 · Mindfulness for Life</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
+  <style>
+    /* Hero 森林背景 */
+    .camp-hero {
+      position: relative;
+      padding: 10rem 0 7rem;
+      background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=85') center/cover no-repeat;
+      overflow: hidden;
+    }
+    .camp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .camp-hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+    }
+    .camp-hero-en {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.8rem;
+    }
+    .camp-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+    .camp-hero .btn-join {
+      display: inline-block;
+      background: var(--moss);
+      color: var(--white);
+      padding: 0.9rem 2.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: 2px solid var(--moss);
+    }
+    .camp-hero .btn-join:hover {
+      background: transparent;
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* 共读/带领者计划 */
+    .camp-plan {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+    .camp-plan-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .camp-book-card {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .camp-book-cover {
+      width: 160px;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .camp-book-cover img { width: 100%; display: block; }
+    .camp-book-info { flex: 1; }
+    .camp-book-label {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .camp-book-info h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .camp-book-authors {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 2;
+    }
+
+    /* 读书营招募 */
+    .camp-recruit {
+      padding: var(--section-pad) 0;
+      background: var(--cream);
+    }
+    .camp-recruit-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+    .camp-recruit-header {
+      background: var(--sand-dark);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .camp-recruit-list {
+      background: var(--white);
+      border: 1px solid var(--sand-dark);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      padding: 1.5rem 2rem;
+      list-style: none;
+    }
+    .camp-recruit-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--sand);
+      align-items: flex-start;
+    }
+    .camp-recruit-list li:last-child { border-bottom: none; }
+    .recruit-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--moss);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .recruit-text { flex: 1; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+    .recruit-text strong { color: var(--ink); }
+
+    /* 带领者计划 */
+    .camp-leader {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .leader-card {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--sand-dark);
+      transition: all 0.3s;
+    }
+    .leader-card:hover {
+      border-color: var(--sage);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .leader-card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .leader-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .leader-card p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }
+
+    /* CTA */
+    .camp-cta {
+      background: linear-gradient(135deg, var(--moss) 0%, var(--moss-deep) 100%);
+      padding: 5rem 0;
+      text-align: center;
+      color: var(--white);
+    }
+    .camp-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .camp-cta p { opacity: 0.85; margin-bottom: 2rem; font-size: 1rem; }
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--moss);
+      padding: 0.9rem 2.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-white:hover { background: var(--sand); transform: translateY(-2px); }
+
+    @media (max-width: 680px) {
+      .camp-book-card { flex-direction: column; align-items: center; text-align: center; }
+      .leader-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-zh">正念生活</span>
+      <span class="logo-dot">·</span>
+      <span class="logo-en">Mindfulness for Life</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html#courses">课程</a></li>
+      <li><a href="index.html#reading">共读计划</a></li>
+      <li><a href="index.html#resources">学习资源</a></li>
+      <li><a href="index.html#teachers">教师网络</a></li>
+      <li><a href="index.html#contact">关于我们</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="nav-cta" target="_blank" rel="noopener">加入我们</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="camp-hero">
+  <div class="container">
+    <div class="camp-hero-content">
+      <p class="camp-hero-en">MINDFULNESS FOR LIFE, A LIFE WELL LIVED</p>
+      <h1>正念生活，不虚此生</h1>
+      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592"
+         class="btn-join" target="_blank" rel="noopener">加入共读/带领者计划</a>
+    </div>
+  </div>
+</section>
+
+<!-- 共读/带领者计划介绍 -->
+<section class="camp-plan">
+  <div class="container">
+    <h2 class="camp-plan-title">共读/带领者计划</h2>
+    <div class="camp-book-card">
+      <div class="camp-book-cover">
+        <img src="assets/book-mindfulness-for-life.png" alt="《正念生活》封面">
+      </div>
+      <div class="camp-book-info">
+        <p class="camp-book-label">重建生命的智慧</p>
+        <h2>《牛津大学正念课》</h2>
+        <div class="camp-book-authors">
+          克里斯蒂娜·费尔德曼[英](Christina Feldman)<br>
+          威廉·库肯(Willem Kuyken)著<br>
+          马嘉瞳 译
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 读书营招募 -->
+<section class="camp-recruit">
+  <div class="container">
+    <h2 class="camp-recruit-title">读书营招募</h2>
+    <div class="camp-recruit-header">您将收获什么：</div>
+    <ul class="camp-recruit-list">
+      <li>
+        <div class="recruit-num">1</div>
+        <div class="recruit-text"><strong>正念读书营带领者：</strong>负责在当地组织、策划并带领正念读书营活动</div>
+      </li>
+      <li>
+        <div class="recruit-num">2</div>
+        <div class="recruit-text"><strong>正念文化传播大使：</strong>在您所在城市推广正念理念，传播 Mindfulness for Life 品牌价值</div>
+      </li>
+      <li>
+        <div class="recruit-num">3</div>
+        <div class="recruit-text"><strong>学习社群建设者：</strong>建立、维护并发展当地的 Mindfulness for Life 学习社群</div>
+      </li>
+      <li>
+        <div class="recruit-num">4</div>
+        <div class="recruit-text"><strong>品牌合作伙伴：</strong>作为正念明心（北京）教育咨询有限公司的授权合作伙伴</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 带领者计划 -->
+<section class="camp-leader">
+  <div class="container">
+    <h2 class="camp-recruit-title">成为读书营带领者</h2>
+    <p style="color:var(--ink-muted);font-size:0.95rem;margin-bottom:1rem;">加入我们的带领者计划，与志同道合的伙伴一起，在更广泛的社群中传播正念的力量。</p>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-card-icon">🌱</div>
+        <h4>组织与带领</h4>
+        <p>在当地组织正念读书营，带领小组进行系统性的正念阅读与实践。</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-card-icon">🌍</div>
+        <h4>文化传播</h4>
+        <p>成为正念理念的传播者，在所在城市推广 Mindfulness for Life 的价值。</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-card-icon">🤝</div>
+        <h4>社群建设</h4>
+        <p>建立并维护本地学习社群，让正念实践在更多人的生活中扎根。</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-card-icon">🏅</div>
+        <h4>授权合作</h4>
+        <p>获得正念明心（北京）教育咨询有限公司的官方授权，成为品牌合作伙伴。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="camp-cta">
+  <div class="container">
+    <h2>准备好了吗？</h2>
+    <p>加入正念生活共读营，开启一段深度阅读与实践之旅</p>
+    <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592"
+       class="btn-white" target="_blank" rel="noopener">立即加入 →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top-wave">
+    <svg viewBox="0 0 1440 50" preserveAspectRatio="none"><path d="M0,50 C360,0 1080,0 1440,50 L1440,50 L0,50 Z" fill="#1a1a1a"/></svg>
+  </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3 class="footer-logo">正念生活 <span>· Mindfulness for Life</span></h3>
+        <p class="footer-tagline">从抑郁防治到促进人类繁荣</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Mindfulness for Life · Oxford Mindfulness Centre</p></div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+</script>
+</body>
+</html>
