@@ -136,7 +136,7 @@ a { color: inherit; text-decoration: none; }
 .reading-projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
 .project-card { background: var(--white); border-radius: var(--radius); overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s; }
 .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.project-img { height: 180px; overflow: hidden; }
+.project-img { height: 120px; overflow: hidden; }
 .project-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-out); }
 .project-card:hover .project-img img { transform: scale(1.05); }
 .project-body { padding: 1.5rem; }
