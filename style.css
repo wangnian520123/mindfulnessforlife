@@ -199,6 +199,8 @@ a { color: inherit; text-decoration: none; }
 .media-card { transition: transform 0.4s var(--ease-out); }
 .media-card:hover { transform: translateY(-4px); }
 .media-thumb { position: relative; height: 160px; border-radius: var(--radius-sm); overflow: hidden; }
+.media-thumb-iframe { height: 200px; }
+.media-thumb-iframe iframe { display: block; }
 .media-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .media-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: var(--shadow-md); }
 .media-badge { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.65rem; font-weight: 600; color: var(--white); background: var(--moss); padding: 0.15rem 0.5rem; border-radius: 4px; }
