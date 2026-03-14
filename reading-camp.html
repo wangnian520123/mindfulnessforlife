@@ -269,6 +269,22 @@
     <div style="margin-top:3rem;" id="booksTab">
       <h3 style="font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;">共读书目</h3>
 
+      <!-- 大书封展示区（联动） -->
+      <div style="display:flex;gap:2.5rem;align-items:flex-start;padding:2rem 0 2.5rem;border-bottom:1px solid var(--sand-dark);margin-bottom:2rem;">
+        <div id="bigCover" style="width:180px;flex-shrink:0;border-radius:10px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.18);transition:all 0.4s;">
+          <img id="bigCoverImg" src="assets/book-oxford-mindfulness.jpg" style="width:100%;display:block;">
+        </div>
+        <div id="bigCoverInfo" style="flex:1;padding-top:0.5rem;">
+          <p id="bigCoverSub" style="font-size:0.8rem;color:var(--ink-muted);letter-spacing:0.05em;margin-bottom:0.5rem;">重建生命的智慧</p>
+          <h3 id="bigCoverTitle" style="font-family:var(--font-serif);font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600;color:var(--ink);margin-bottom:1rem;">《牛津大学正念课》</h3>
+          <p id="bigCoverAuthors" style="font-size:0.9rem;color:var(--ink-muted);line-height:2;margin:0;">
+            克里斯蒂娜·费尔德曼[英](Christina Feldman)<br>
+            威廉·库肯(Willem Kuyken)著<br>
+            马嘉瞳 译
+          </p>
+        </div>
+      </div>
+
       <!-- Tab 选择器 -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
         <!-- Tab 1 -->
@@ -387,6 +403,21 @@
 }
 </style>
 <script>
+const bookData = {
+  book1: {
+    img: 'assets/book-oxford-mindfulness.jpg',
+    sub: '重建生命的智慧',
+    title: '《牛津大学正念课》',
+    authors: '克里斯蒂娜·费尔德曼[英](Christina Feldman)<br>威廉·库肯(Willem Kuyken)著<br>马嘉瞳 译'
+  },
+  book2: {
+    img: 'assets/book-mfl-en.jpg',
+    sub: '正念生活',
+    title: '《Mindfulness for Life》',
+    authors: 'Willem Kuyken, PhD 著<br>马嘉瞳 译'
+  }
+};
+
 document.querySelectorAll('.book-tab').forEach(tab => {
   tab.addEventListener('click', function() {
     const target = this.dataset.tab;
@@ -398,6 +429,12 @@ document.querySelectorAll('.book-tab').forEach(tab => {
     this.style.borderColor = 'var(--moss)';
     document.querySelectorAll('.book-panel').forEach(p => p.style.display = 'none');
     document.getElementById(target).style.display = 'block';
+    // 联动大书封
+    const d = bookData[target];
+    document.getElementById('bigCoverImg').src = d.img;
+    document.getElementById('bigCoverSub').textContent = d.sub;
+    document.getElementById('bigCoverTitle').textContent = d.title;
+    document.getElementById('bigCoverAuthors').innerHTML = d.authors;
   });
 });
 </script>
