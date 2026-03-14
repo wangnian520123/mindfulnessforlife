@@ -298,3 +298,24 @@ a { color: inherit; text-decoration: none; }
   .section-header--row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
 }
+
+/* 移动端汉堡菜单内「加入我们」 */
+.nav-menu-join { display: none; }
+@media (max-width: 768px) {
+  .nav-menu-join {
+    display: block;
+    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav-menu-join a {
+    display: block;
+    text-align: center;
+    background: var(--moss);
+    color: var(--white) !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+}
