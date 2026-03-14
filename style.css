@@ -320,3 +320,13 @@ a { color: inherit; text-decoration: none; }
     opacity: 1 !important;
   }
 }
+
+/* 关于我们区域文字居中 */
+.about-us .about-intro,
+.about-us .vision,
+.about-us .contact-info {
+  text-align: center;
+}
+.about-us .contact-info p {
+  justify-content: center;
+}
