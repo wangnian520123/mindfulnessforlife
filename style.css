@@ -260,7 +260,7 @@ a { color: inherit; text-decoration: none; }
 .footer { background: var(--ink); color: var(--white); position: relative; }
 .footer-top-wave { margin-top: -1px; }
 .footer-top-wave svg { display: block; width: 100%; height: 50px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; padding: 3rem 0 2rem; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; }
 .footer-logo { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
 .footer-logo span { font-family: var(--font-display); font-size: 0.9rem; font-weight: 400; font-style: italic; opacity: 0.7; }
 .footer-tagline { font-size: 0.85rem; opacity: 0.5; margin-bottom: 1.5rem; }
