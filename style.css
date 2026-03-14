@@ -115,7 +115,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ==================== Latest Events ==================== */
 .latest-events { padding: var(--section-pad) 0; background: var(--cream); }
-.events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.events-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 .event-card { display: block; background: var(--white); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--sand-dark); transition: all 0.3s var(--ease-out); }
 .event-card:hover { border-color: var(--sage); transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .event-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; color: var(--moss); background: rgba(61,90,69,0.1); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.8rem; }
