@@ -156,7 +156,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ==================== Courses ==================== */
 .courses { padding: var(--section-pad) 0; background: var(--white); }
-.courses-featured { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.courses-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .course-card { background: var(--cream); border-radius: var(--radius); overflow: hidden; transition: transform 0.5s var(--ease-out), box-shadow 0.5s; }
 .course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .course-img { position: relative; height: 220px; overflow: hidden; }
