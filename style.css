@@ -198,7 +198,7 @@ a { color: inherit; text-decoration: none; }
 .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 .media-card { transition: transform 0.4s var(--ease-out); }
 .media-card:hover { transform: translateY(-4px); }
-.media-thumb { position: relative; height: 160px; border-radius: var(--radius-sm); overflow: hidden; }
+.media-thumb { position: relative; height: 200px; border-radius: var(--radius-sm); overflow: hidden; }
 .media-thumb-iframe { height: 200px; }
 .media-thumb-iframe iframe { display: block; }
 .media-thumb img { width: 100%; height: 100%; object-fit: cover; }
