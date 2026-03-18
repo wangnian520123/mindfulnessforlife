@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>《牛津大学正念课-重建生命的智慧》共读营 · Mindfulness for Life</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lang-bar.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
   <style>
@@ -213,6 +214,9 @@
   </style>
 </head>
 <body>
+<!-- Language Bar -->
+<div class="lang-bar"><button id="langToggleBtn" onclick="toggleLang()">EN</button></div>
+
 
 <nav class="nav scrolled" id="nav">
   <div class="nav-inner">
@@ -222,11 +226,11 @@
       <span class="logo-en">Mindfulness for Life</span>
     </a>
     <ul class="nav-menu">
-      <li><a href="index.html#courses">课程</a></li>
-      <li><a href="index.html#reading">共读计划</a></li>
-      <li><a href="index.html#resources">学习资源</a></li>
-      <li><a href="index.html#teachers">教师网络</a></li>
-      <li><a href="index.html#contact">关于我们</a></li>
+      <li><a href="index.html#courses" data-i18n="nav.courses">课程</a></li>
+      <li><a href="index.html#reading" data-i18n="nav.reading">共读计划</a></li>
+      <li><a href="index.html#resources" data-i18n="nav.resources">学习资源</a></li>
+      <li><a href="index.html#teachers" data-i18n="nav.teachers">教师网络</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.about">关于我们</a></li>
     </ul>
     <div class="nav-actions">
       <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="nav-cta" target="_blank" rel="noopener">加入我们</a>
@@ -239,7 +243,7 @@
   <div class="container">
     <div class="camp-hero-content">
       <p class="camp-hero-en">MINDFULNESS FOR LIFE, A LIFE WELL LIVED</p>
-      <h1>正念生活，不虚此生</h1>
+      <h1 data-i18n="rc.hero.title">正念生活，不虚此生</h1>
       <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592"
          class="btn btn-ghost btn-join" target="_blank" rel="noopener">加入共读/带领者计划</a>
     </div>
@@ -249,7 +253,7 @@
 <!-- 共读/带领者计划介绍 -->
 <section class="camp-plan">
   <div class="container">
-    <h2 class="camp-plan-title">共读/带领者计划</h2>
+    <h2 class="camp-plan-title" data-i18n="rc.plan.title">共读/带领者计划</h2>
     <p style="text-align:center;font-family:var(--font-serif);font-size:1.1rem;color:var(--ink-muted);margin-top:-1.5rem;margin-bottom:0;letter-spacing:0.02em;">以阅读为入口，以带领为深化，走进正念生活的核心</p>
     <div style="display:none;">
     </div>
@@ -401,8 +405,8 @@ document.querySelectorAll('.book-tab').forEach(tab => {
 <!-- 读书营招募 -->
 <section class="camp-recruit">
   <div class="container">
-    <h2 class="camp-recruit-title">读书营招募</h2>
-    <div class="camp-recruit-header">您将收获什么：</div>
+    <h2 class="camp-recruit-title" data-i18n="rc.recruit.title">读书营招募</h2>
+    <div class="camp-recruit-header" data-i18n="rc.recruit.header">您将收获什么：</div>
     <ul class="camp-recruit-list">
       <li>
         <div class="recruit-num">1</div>
@@ -427,27 +431,27 @@ document.querySelectorAll('.book-tab').forEach(tab => {
 <!-- 带领者计划 -->
 <section class="camp-leader">
   <div class="container">
-    <h2 class="camp-recruit-title">成为读书营带领者</h2>
-    <p style="color:var(--ink-muted);font-size:0.95rem;margin-bottom:1rem;">加入我们的带领者计划，与志同道合的伙伴一起，在更广泛的社群中传播正念的力量。</p>
+    <h2 class="camp-recruit-title" data-i18n="rc.leader.title">成为读书营带领者</h2>
+    <p style="color:var(--ink-muted);font-size:0.95rem;margin-bottom:1rem;" data-i18n="rc.leader.desc">加入我们的带领者计划，与志同道合的伙伴一起，在更广泛的社群中传播正念的力量。</p>
     <div class="leader-grid">
       <div class="leader-card">
         <div class="leader-card-icon">🌱</div>
-        <h4>组织与带领</h4>
+        <h4 data-i18n="rc.lc1.title">组织与带领</h4>
         <p>在当地组织正念读书营，带领小组进行系统性的正念阅读与实践。</p>
       </div>
       <div class="leader-card">
         <div class="leader-card-icon">🌍</div>
-        <h4>文化传播</h4>
+        <h4 data-i18n="rc.lc2.title">文化传播</h4>
         <p>成为正念理念的传播者，在所在城市推广 Mindfulness for Life 的价值。</p>
       </div>
       <div class="leader-card">
         <div class="leader-card-icon">🤝</div>
-        <h4>社群建设</h4>
+        <h4 data-i18n="rc.lc3.title">社群建设</h4>
         <p>建立并维护本地学习社群，让正念实践在更多人的生活中扎根。</p>
       </div>
       <div class="leader-card">
         <div class="leader-card-icon">🏅</div>
-        <h4>授权合作</h4>
+        <h4 data-i18n="rc.lc4.title">授权合作</h4>
         <p>获得正念明心（北京）教育咨询有限公司的官方授权，成为品牌合作伙伴。</p>
       </div>
     </div>
@@ -457,10 +461,10 @@ document.querySelectorAll('.book-tab').forEach(tab => {
 <!-- CTA -->
 <section class="camp-cta">
   <div class="container">
-    <h2>准备好了吗？</h2>
-    <p>加入正念生活共读营，开启一段深度阅读与实践之旅</p>
+    <h2 data-i18n="rc.cta.title">准备好了吗？</h2>
+    <p data-i18n="rc.cta.desc">加入正念生活共读营，开启一段深度阅读与实践之旅</p>
     <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592"
-       class="btn-white" target="_blank" rel="noopener">立即加入 →</a>
+       class="btn-white" target="_blank" rel="noopener" data-i18n="rc.cta.btn">立即加入 →</a>
   </div>
 </section>
 
@@ -472,10 +476,10 @@ document.querySelectorAll('.book-tab').forEach(tab => {
     <div class="footer-grid">
       <div class="footer-brand">
         <h3 class="footer-logo">正念生活 <span>· Mindfulness for Life</span></h3>
-        <p class="footer-tagline">从抑郁防治到促进人类繁荣</p>
+        <p class="footer-tagline" data-i18n="footer.tagline">从抑郁防治到促进人类繁荣</p>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Mindfulness for Life · Oxford Mindfulness Centre</p></div>
+    <div class="footer-bottom"><p data-i18n="footer.copy">© 2025 Mindfulness for Life · Oxford Mindfulness Centre</p></div>
   </div>
 </footer>
 
@@ -486,5 +490,6 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 </script>
+<script src="i18n.js?v=2"></script>
 </body>
 </html>
