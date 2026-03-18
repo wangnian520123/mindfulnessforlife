@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>正念与人类繁荣 · Mindfulness for Life</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lang-bar.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
   <style>
@@ -67,6 +68,9 @@
   </style>
 </head>
 <body>
+<!-- Language Bar -->
+<div class="lang-bar"><button id="langToggleBtn" onclick="toggleLang()">EN</button></div>
+
 
 <nav class="nav scrolled" id="nav">
   <div class="nav-inner">
@@ -76,14 +80,14 @@
       <span class="logo-en">Mindfulness for Life</span>
     </a>
     <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html#courses">课程</a></li>
-      <li><a href="index.html#reading">共读计划</a></li>
-      <li><a href="index.html#resources">学习资源</a></li>
-      <li><a href="index.html#teachers">教师网络</a></li>
-      <li><a href="index.html#contact">关于我们</a></li>
+      <li><a href="index.html#courses" data-i18n="nav.courses">课程</a></li>
+      <li><a href="index.html#reading" data-i18n="nav.reading">共读计划</a></li>
+      <li><a href="index.html#resources" data-i18n="nav.resources">学习资源</a></li>
+      <li><a href="index.html#teachers" data-i18n="nav.teachers">教师网络</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.about">关于我们</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="index.html#courses" class="nav-cta">探索课程</a>
+      <a href="index.html#courses" class="nav-cta" data-i18n="nav.explore">探索课程</a>
     </div>
   </div>
 </nav>
@@ -91,13 +95,13 @@
 <section class="detail-hero">
   <div class="container">
     <div class="detail-hero-content">
-      <a href="index.html" class="detail-back">← 返回首页</a>
-      <div class="detail-hero-tag">MINDFULNESS · HUMAN FLOURISHING</div>
-      <h1>正念与人类繁荣</h1>
-      <p class="detail-hero-sub">从抑郁防治到促进人类繁荣</p>
+      <a href="index.html" class="detail-back" data-i18n="fl.back">← 返回首页</a>
+      <div class="detail-hero-tag" data-i18n="fl.tag">MINDFULNESS · HUMAN FLOURISHING</div>
+      <h1 data-i18n="fl.title">正念与人类繁荣</h1>
+      <p class="detail-hero-sub" data-i18n="fl.sub">从抑郁防治到促进人类繁荣</p>
       <div class="detail-hero-meta">
-        <span>✍ Willem Kuyken · 牛津大学正念中心主任</span>
-        <span>📖 正念认知疗法的成熟阶段</span>
+        <span data-i18n="fl.meta1">✍ Willem Kuyken · 牛津大学正念中心主任</span>
+        <span data-i18n="fl.meta2">📖 正念认知疗法的成熟阶段</span>
       </div>
     </div>
   </div>
@@ -113,25 +117,25 @@
         </div>
         <p>父母为孩子的未来忧心忡忡；在工作中，人们感到负担沉重，并对未来感到焦虑；即便在生活表面"看起来还不错"的时候，某种<strong>本质性的东西</strong>却仿佛缺失了。这一悖论，正定义着我们的时代。</p>
         <div class="stats-row">
-          <div class="stat-card"><span class="stat-number">72年</span><span class="stat-label">全球平均寿命（截至2020年）</span></div>
-          <div class="stat-card"><span class="stat-number">4,000周</span><span class="stat-label">一生约等于的周数</span></div>
-          <div class="stat-card"><span class="stat-number">26,000天</span><span class="stat-label">一生约等于的天数</span></div>
+          <div class="stat-card"><span class="stat-number">72年</span><span class="stat-label" data-i18n="fl.stat1.label">全球平均寿命（截至2020年）</span></div>
+          <div class="stat-card"><span class="stat-number">4,000周</span><span class="stat-label" data-i18n="fl.stat2.label">一生约等于的周数</span></div>
+          <div class="stat-card"><span class="stat-number">26,000天</span><span class="stat-label" data-i18n="fl.stat3.label">一生约等于的天数</span></div>
         </div>
         <p>面对有限而珍贵的生命，我们不得不问：<strong>什么才是"活得好"的人生？</strong></p>
       </div>
 
       <div class="article-section" id="sec-mbct">
-        <h2>从治疗，到预防，再到繁荣</h2>
+        <h2 data-i18n="fl.sec2.title">从治疗，到预防，再到繁荣</h2>
         <p>正念认知疗法（Mindfulness-Based Cognitive Therapy，MBCT）最初是为了<strong>预防抑郁症</strong>而发展出来的。而在过去 <strong>25 年</strong> 中，我们逐渐发现：它向我们揭示了一个更深层的问题：<strong>人类如何在完整的一生中，活得好。</strong></p>
-        <h3>心理健康的全球挑战</h3>
+        <h3 data-i18n="fl.sec2.h2">心理健康的全球挑战</h3>
         <p>世界卫生组织（WHO）目前估计，<strong>抑郁症是全球第二大"伤残调整生命年"（DALYs）的致因</strong>。全球约有 <strong>10 亿人</strong> 受到抑郁症的影响。大多数心理健康问题始于青春期后期，并往往持续贯穿一生。</p>
         <p>牛津大学在发展心理健康干预方面处于世界前沿，尤其是在<strong>认知疗法</strong>与<strong>正念取向疗法</strong>领域。我们的研究不仅证明了这些疗法在效果上<strong>可以与药物治疗相当</strong>，并且能够为人们提供一套在治疗结束后仍可持续使用的生命技能，这些成果已被纳入世界各地的<strong>临床实践指南</strong>。</p>
-        <h3>令人警惕的现实</h3>
+        <h3 data-i18n="fl.sec2.h3">令人警惕的现实</h3>
         <p>然而，<strong>心理健康状况整体上正在恶化</strong>，尤其是在年轻人群体以及社会经济条件不利的环境中。作为回应，一个规模高达 <strong>5.6 万亿美元</strong> 的全球健康产业迅速崛起。但由于参与度不足，以及未能充分运用心理科学与沉思传统中最成熟的成果，这一产业往往<strong>难以带来可持续、真正有意义的改变</strong>。</p>
       </div>
 
       <div class="article-section" id="sec-better">
-        <h2>我们可以，也必须，做得更好</h2>
+        <h2 data-i18n="fl.sec3.title">我们可以，也必须，做得更好</h2>
         <p>为了真正改善人类的心理健康，我们需要：</p>
         <div class="levels-list">
           <div class="level-item"><div class="level-num">1</div><div class="level-info"><h4>持续改进心理学干预方式</h4><p>不断完善以证据为基础的正念与认知疗法，确保其有效性与适用性。</p></div></div>
@@ -142,7 +146,7 @@
       </div>
 
       <div class="article-section" id="sec-spectrum">
-        <h2>繁荣连续谱</h2>
+        <h2 data-i18n="fl.sec4.title">繁荣连续谱</h2>
         <p>我们需要为个体与组织提供资源，支持他们在从抑郁到蓬勃发展这一连续谱上的不同阶段：</p>
         <div class="spectrum-bar">
           <div class="spectrum-item">抑郁<span class="spectrum-en">Depression</span></div>
@@ -155,7 +159,7 @@
       </div>
 
       <div class="article-section" id="sec-vision">
-        <h2>面向 2050 的愿景</h2>
+        <h2 data-i18n="fl.sec5.title">面向 2050 的愿景</h2>
         <div class="article-quote">
           <p>一个不再被抑郁的毁灭性影响所主导的世界，一个个体能够繁荣生长，并具备资源应对时代挑战的世界。</p>
         </div>
@@ -163,7 +167,7 @@
       </div>
 
       <div class="article-section" id="sec-courses">
-        <h2>正念生活 · 三层课程体系</h2>
+        <h2 data-i18n="fl.sec6.title">正念生活 · 三层课程体系</h2>
         <p>「正念生活」项目可根据<strong>不同生命阶段与生活情境</strong>进行调整，随着个体人生的发展而演进。</p>
         <div class="levels-list">
           <div class="level-item"><div class="level-num">一</div><div class="level-info"><h4>正念入门课程</h4><p>面向所有人，教授基础能力。无需任何正念基础，适合初次接触者。</p></div></div>
@@ -173,15 +177,15 @@
       </div>
 
       <div class="article-cta">
-        <h3>开始你的正念之旅</h3>
-        <p>从一堂课开始，探索正念如何改变你的生活</p>
-        <a href="index.html#courses" class="btn-white">探索课程 →</a>
+        <h3 data-i18n="fl.cta.title">开始你的正念之旅</h3>
+        <p data-i18n="fl.cta.desc">从一堂课开始，探索正念如何改变你的生活</p>
+        <a href="index.html#courses" class="btn-white" data-i18n="fl.cta.btn">探索课程 →</a>
       </div>
     </article>
 
     <aside class="article-sidebar">
       <div class="sidebar-card">
-        <h4>目录</h4>
+        <h4 data-i18n="fl.toc.label">目录</h4>
         <ul class="toc-list">
           <li><a href="#sec-intro">时代的悖论</a></li>
           <li><a href="#sec-mbct">从治疗到繁荣</a></li>
@@ -192,14 +196,14 @@
         </ul>
       </div>
       <div class="sidebar-card">
-        <h4>关于作者</h4>
+        <h4 data-i18n="fl.author.label">关于作者</h4>
         <div class="sidebar-author">
           <div class="sidebar-author-photo"><img src="assets/willem-kuyken.jpg" alt="Willem Kuyken"></div>
-          <div class="sidebar-author-info"><h5>Willem Kuyken</h5><p>牛津大学正念中心主任，正念认知疗法国际权威研究者</p></div>
+          <div class="sidebar-author-info"><h5>Willem Kuyken</h5><p data-i18n="fl.author.role">牛津大学正念中心主任，正念认知疗法国际权威研究者</p></div>
         </div>
       </div>
       <div class="sidebar-card">
-        <h4>相关课程</h4>
+        <h4 data-i18n="fl.related.label">相关课程</h4>
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           <a href="index.html#courses" style="display:flex;align-items:center;gap:0.8rem;padding:0.8rem;background:var(--cream);border-radius:8px;font-size:0.85rem;color:var(--ink-soft);">🌱 3天正念入门课</a>
           <a href="index.html#courses" style="display:flex;align-items:center;gap:0.8rem;padding:0.8rem;background:var(--cream);border-radius:8px;font-size:0.85rem;color:var(--ink-soft);">🌿 8周 MBCT-L 课程</a>
@@ -216,10 +220,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3 class="footer-logo">正念生活 <span>· Mindfulness for Life</span></h3>
-        <p class="footer-tagline">从抑郁防治到促进人类繁荣</p>
+        <p class="footer-tagline" data-i18n="footer.tagline">从抑郁防治到促进人类繁荣</p>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Mindfulness for Life · Oxford Mindfulness Centre</p></div>
+    <div class="footer-bottom"><p data-i18n="footer.copy">© 2025 Mindfulness for Life · Oxford Mindfulness Centre</p></div>
   </div>
 </footer>
 
@@ -230,5 +234,6 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 </script>
+<script src="i18n.js?v=2"></script>
 </body>
 </html>
