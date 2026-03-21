@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>正念生活 · Mindfulness for Life</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lang-bar.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Language Bar -->
+
 
 <!-- 导航 -->
 <nav class="nav" id="nav">
@@ -18,16 +21,17 @@
       <span class="logo-en">mindfulness for life</span>
     </a>
     <ul class="nav-menu">
-      <li><a href="#home">首页</a></li>
-      <li><a href="#reading">共读计划</a></li>
-      <li><a href="#courses">正念课程</a></li>
-      <li><a href="#resources">学习资源</a></li>
-      <li><a href="#teachers">教师网络</a></li>
-      <li><a href="#about-us">关于我们</a></li>
-      <li class="nav-menu-join"><a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" target="_blank" rel="noopener">加入我们</a></li>
+      <li><a href="#home" data-i18n="nav.home">首页</a></li>
+      <li><a href="#reading" data-i18n="nav.reading">共读计划</a></li>
+      <li><a href="#courses" data-i18n="nav.courses">正念课程</a></li>
+      <li><a href="#resources" data-i18n="nav.resources">学习资源</a></li>
+      <li><a href="#teachers" data-i18n="nav.teachers">教师网络</a></li>
+      <li><a href="#about-us" data-i18n="nav.about">关于我们</a></li>
+      <li class="nav-menu-join"><a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" target="_blank" rel="noopener" data-i18n="nav.join">加入我们</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="nav-cta" target="_blank" rel="noopener">加入我们</a>
+      <button id="langToggleBtn" class="lang-btn" onclick="toggleLang()">EN</button>
+      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.join">加入我们</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -45,16 +49,16 @@
     <div class="hero-gradient"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-tag" data-animate="fade-up">正念与人类繁荣</div>
+    <div class="hero-tag" data-animate="fade-up" data-i18n="hero.tag">正念与人类繁荣</div>
     <h1 data-animate="fade-up" data-delay="1">
       <span class="hero-line">Mindfulness</span>
       <span class="hero-line hero-line--accent">for Life</span>
     </h1>
-    <p class="hero-sub" data-animate="fade-up" data-delay="2">从抑郁防治到促进人类繁荣</p>
-    <p class="hero-desc" data-animate="fade-up" data-delay="2">正念，是对当下时刻不加评判的觉察，是一场从内在出发的宁静革命。</p>
+    <p class="hero-sub" data-animate="fade-up" data-delay="2" data-i18n="hero.sub">从抑郁防治到促进人类繁荣</p>
+    <p class="hero-desc" data-animate="fade-up" data-delay="2" data-i18n="hero.desc">正念，是对当下时刻不加评判的觉察，是一场从内在出发的宁静革命。</p>
     <div class="hero-actions" data-animate="fade-up" data-delay="3">
-      <a href="mindfulness-flourishing.html" class="btn btn-primary">了解正念繁荣 →</a>
-      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="btn btn-ghost" target="_blank" rel="noopener">加入我们</a>
+      <a href="mindfulness-flourishing.html" class="btn btn-primary" data-i18n="hero.cta1">了解正念繁荣 →</a>
+      <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cta2">加入我们</a>
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div></div>
@@ -65,11 +69,11 @@
   <div class="container">
     <a href="reading-camp.html" class="reading-banner-inner" style="text-decoration:none;cursor:pointer;" target="_self">
       <div class="reading-banner-text">
-        <div class="section-label">MINDFUL READING</div>
-        <h2>正念共读与生活</h2>
-        <p>与同行者一起阅读、分享、践行正念生活</p>
+        <div class="section-label" data-i18n="readingBanner.label">MINDFUL READING</div>
+        <h2 data-i18n="readingBanner.title">正念共读与生活</h2>
+        <p data-i18n="readingBanner.desc">与同行者一起阅读、分享、践行正念生活</p>
       </div>
-      <span class="btn btn-primary">了解更多 →</span>
+      <span class="btn btn-primary" data-i18n="readingBanner.cta">了解更多 →</span>
     </a>
   </div>
 </section>
@@ -78,17 +82,17 @@
 <section class="latest-events">
   <div class="container">
     <div class="section-header">
-        <div class="section-label">LATEST</div>
-        <h2 class="section-title">最新活动</h2>
+        <div class="section-label" data-i18n="events.label">LATEST</div>
+        <h2 class="section-title" data-i18n="events.title">最新活动</h2>
     </div>
     <div class="events-grid">
       <a href="https://mp.weixin.qq.com/s/PLSb9d7O6brEnDdpN_HrdA" class="event-card" target="_blank" rel="noopener" style="display:block;">
-        <span class="event-tag">讲座与工作坊</span>
-        <h4>从"活着"到"活得好"</h4>
-        <p style="margin-bottom:0.5rem;">正念与人类繁荣-从抑郁防治到促进人类繁荣</p>
-        <p style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:0.3rem;">📅 2026年3月27日 - 2026年3月29日</p>
-        <p style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:0.3rem;">📍 国家心血管病中心阜外医院西院区</p>
-        <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;">🎤 主讲嘉宾：牛津大学 Willem Kuyken 教授</p>
+        <span class="event-tag" data-i18n="events.tag">讲座与工作坊</span>
+        <h4 data-i18n="event1.title">从"活着"到"活得好"</h4>
+        <p style="margin-bottom:0.5rem;" data-i18n="event1.desc">正念与人类繁荣-从抑郁防治到促进人类繁荣</p>
+        <p style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:0.3rem;" data-i18n="event1.date">📅 2026年3月27日 - 2026年3月29日</p>
+        <p style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:0.3rem;" data-i18n="event1.loc">📍 国家心血管病中心阜外医院西院区</p>
+        <p style="font-size:0.82rem;color:var(--ink-muted);margin:0;" data-i18n="event1.speaker">🎤 主讲嘉宾：牛津大学 Willem Kuyken 教授</p>
       </a>
     </div>
   </div>
@@ -98,54 +102,54 @@
 <section class="reading" id="reading">
   <div class="container">
     <div class="section-header" style="text-align:center;">
-      <div class="section-label">READING & LEADING</div>
-      <h2 class="section-title">共读 / 带领者计划</h2>
-      <p class="section-desc" style="margin:0 auto;">以阅读为入口，以带领为深化，走进正念生活的核心</p>
+      <div class="section-label" data-i18n="reading.label">READING & LEADING</div>
+      <h2 class="section-title" data-i18n="reading.title">共读 / 带领者计划</h2>
+      <p class="section-desc" style="margin:0 auto;" data-i18n="reading.desc">以阅读为入口，以带领为深化，走进正念生活的核心</p>
     </div>
     <div class="tab-buttons">
-      <button class="tab-btn active" data-tab="reading-tab">共读计划</button>
-      <button class="tab-btn" data-tab="leader-tab">带领者计划</button>
+      <button class="tab-btn active" data-tab="reading-tab" data-i18n="reading.tab1">共读计划</button>
+      <button class="tab-btn" data-tab="leader-tab" data-i18n="reading.tab2">带领者计划</button>
     </div>
     <div class="tab-content active" id="reading-tab">
       <div class="reading-intro">
         <div class="reading-intro-text">
-          <h3>共读计划介绍</h3>
-          <p>正念共读计划旨在通过集体阅读与分享，帮助参与者深入理解正念理念，将正念融入日常生活。每期共读围绕一本经典正念著作展开，由专业带领者引导讨论与练习。</p>
+          <h3 data-i18n="reading.intro.title">共读计划介绍</h3>
+          <p data-i18n="reading.intro.p">正念共读计划旨在通过集体阅读与分享，帮助参与者深入理解正念理念，将正念融入日常生活。每期共读围绕一本经典正念著作展开，由专业带领者引导讨论与练习。</p>
         </div>
       </div>
-      <h3 class="sub-heading">共读项目</h3>
+      <h3 class="sub-heading" data-i18n="reading.projects">共读项目</h3>
       <div class="reading-projects">
         <a href="reading-camp.html" class="project-card" style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
           <div class="project-img" style="height:200px;"><img src="assets/reading-camp-banner.jpg" alt="《牛津大学正念课》共读营" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
           <div class="project-body">
-            <h4>《牛津大学正念课-重建生命的智慧》共读营</h4>
-            <p>Mindfulness for Life 经典共读，8周深度阅读与实践</p>
-            <span class="btn btn-sm">了解详情</span>
+            <h4 data-i18n="reading.p1.title">《牛津大学正念课-重建生命的智慧》共读营</h4>
+            <p data-i18n="reading.p1.desc">Mindfulness for Life 经典共读，8周深度阅读与实践</p>
+            <span class="btn btn-sm" data-i18n="reading.p1.cta">了解详情</span>
           </div>
         </a>
         <a href="https://mp.weixin.qq.com/s/-K9fQXU8qrWNWxXQTmQCIA" class="project-card" style="display:block;text-decoration:none;color:inherit;cursor:pointer;" target="_blank" rel="noopener">
           <div class="project-img" style="height:160px;"><img src="assets/zhinian-camp-card.jpg" alt="正念黑皮书实修精读营" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
           <div class="project-body">
-            <h4>正念黑皮书实修精读营</h4>
-            <p>将科学心理学与东方智慧传统交织起来的深度尝试</p>
+            <h4 data-i18n="reading.p2.title">正念黑皮书实修精读营</h4>
+            <p data-i18n="reading.p2.desc">将科学心理学与东方智慧传统交织起来的深度尝试</p>
             <span class="btn btn-sm">了解详情</span>
           </div>
         </a>
       </div>
       <div class="faq-section">
-        <h3 class="sub-heading">常见问题 FAQ</h3>
+        <h3 class="sub-heading" data-i18n="faq.title">常见问题 FAQ</h3>
         <div class="faq-list">
           <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">共读营需要什么基础？<span class="faq-arrow">▾</span></div>
-            <div class="faq-a">完全不需要任何正念基础，只需要一颗好奇和开放的心。</div>
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')" ><span data-i18n="faq.q1">共读营需要什么基础？</span><span class="faq-arrow">▾</span></div>
+            <div class="faq-a" data-i18n="faq.a1">完全不需要任何正念基础，只需要一颗好奇和开放的心。</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">共读营的时间安排？<span class="faq-arrow">▾</span></div>
-            <div class="faq-a">每期共读营为期 4-8 周，每周一次线上讨论，每次约 60-90 分钟。</div>
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')" ><span data-i18n="faq.q2">共读营的时间安排？</span><span class="faq-arrow">▾</span></div>
+            <div class="faq-a" data-i18n="faq.a2">每期共读营为期 4-8 周，每周一次线上讨论，每次约 60-90 分钟。</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">如何报名参加？<span class="faq-arrow">▾</span></div>
-            <div class="faq-a">关注我们的公众号，获取最新的共读营报名信息。</div>
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')" ><span data-i18n="faq.q3">如何报名参加？</span><span class="faq-arrow">▾</span></div>
+            <div class="faq-a" data-i18n="faq.a3">关注我们的公众号，获取最新的共读营报名信息。</div>
           </div>
         </div>
       </div>
@@ -153,9 +157,9 @@
     <div class="tab-content" id="leader-tab">
       <div class="reading-intro">
         <div class="reading-intro-text">
-          <h3>带领者计划介绍</h3>
-          <p>带领者计划是为有志于推广正念共读的伙伴设计的培训项目。通过系统培训，帮助你成为一名合格的正念共读带领者，在社区中传播正念的种子。</p>
-          <p>成为带领者，不仅是服务他人，更是自我修行的深化。</p>
+          <h3 data-i18n="leader.intro.title">带领者计划介绍</h3>
+          <p data-i18n="leader.intro.p1">带领者计划是为有志于推广正念共读的伙伴设计的培训项目。通过系统培训，帮助你成为一名合格的正念共读带领者，在社区中传播正念的种子。</p>
+          <p data-i18n="leader.intro.p2">成为带领者，不仅是服务他人，更是自我修行的深化。</p>
         </div>
       </div>
     </div>
@@ -167,9 +171,9 @@
   <div class="container">
     <div class="section-header section-header--row">
       <div>
-        <div class="section-label">PROGRAMS</div>
-        <h2 class="section-title">正念课程</h2>
-        <p class="section-desc">系统性正念训练体系，从入门到深化</p>
+        <div class="section-label" data-i18n="courses.label">PROGRAMS</div>
+        <h2 class="section-title" data-i18n="courses.title">正念课程</h2>
+        <p class="section-desc" data-i18n="courses.desc">系统性正念训练体系，从入门到深化</p>
       </div>
       
     </div>
@@ -177,37 +181,37 @@
       <div class="course-card">
         <div class="course-img">
           <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&h=500&fit=crop" alt="">
-          <div class="course-overlay"><span class="course-tag">入门推荐</span></div>
+          <div class="course-overlay"><span class="course-tag" data-i18n="courses.c1.tag">入门推荐</span></div>
         </div>
         <div class="course-body">
-          <div class="course-meta">三日正念课 · 入门课</div>
-          <h3>3天介绍课</h3>
-          <p>零基础开始的正念旅程，三天时间建立正念冥想的基本习惯。</p>
-          <div class="course-footer"><span class="course-duration">3天</span><span class="btn btn-sm btn-disabled">暂未开始</span></div>
+          <div class="course-meta" data-i18n="courses.c1.meta">三日正念课 · 入门课</div>
+          <h3 data-i18n="courses.c1.title">3天介绍课</h3>
+          <p data-i18n="courses.c1.desc">零基础开始的正念旅程，三天时间建立正念冥想的基本习惯。</p>
+          <div class="course-footer"><span class="course-duration" data-i18n="courses.c1.dur">3天</span><span class="btn btn-sm btn-disabled" data-i18n="courses.c1.btn">暂未开始</span></div>
         </div>
       </div>
       <div class="course-card">
         <div class="course-img">
           <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=800&h=500&fit=crop" alt="">
-          <div class="course-overlay"><span class="course-tag">牛津大学</span></div>
+          <div class="course-overlay"><span class="course-tag" data-i18n="courses.c2.tag">牛津大学</span></div>
         </div>
         <div class="course-body">
-          <div class="course-meta">MBCT-L · 八周课程</div>
-          <h3>8周正念认知生活课程</h3>
-          <p>牛津大学正念中心研发的核心课程，系统学习正念认知疗法。</p>
-          <div class="course-footer"><span class="course-duration">8周</span><span class="btn btn-sm btn-disabled">暂未开始</span></div>
+          <div class="course-meta" data-i18n="courses.c2.meta">MBCT-L · 八周课程</div>
+          <h3 data-i18n="courses.c2.title">8周正念认知生活课程</h3>
+          <p data-i18n="courses.c2.desc">牛津大学正念中心研发的核心课程，系统学习正念认知疗法。</p>
+          <div class="course-footer"><span class="course-duration" data-i18n="courses.c2.dur">8周</span><span class="btn btn-sm btn-disabled" data-i18n="courses.c2.btn">暂未开始</span></div>
         </div>
       </div>
       <div class="course-card">
         <div class="course-img">
           <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&h=500&fit=crop" alt="">
-          <div class="course-overlay"><span class="course-tag">进阶深化</span></div>
+          <div class="course-overlay"><span class="course-tag" data-i18n="courses.c3.tag">进阶深化</span></div>
         </div>
         <div class="course-body">
-          <div class="course-meta">Take it Further · 十二周课程</div>
-          <h3>12周进阶深化</h3>
-          <p>在八周课程基础上深入修习，建立终身正念练习的自主能力。</p>
-          <div class="course-footer"><span class="course-duration">12周</span><span class="btn btn-sm btn-disabled">暂未开始</span></div>
+          <div class="course-meta" data-i18n="courses.c3.meta">Take it Further · 十二周课程</div>
+          <h3 data-i18n="courses.c3.title">12周进阶深化</h3>
+          <p data-i18n="courses.c3.desc">在八周课程基础上深入修习，建立终身正念练习的自主能力。</p>
+          <div class="course-footer"><span class="course-duration" data-i18n="courses.c3.dur">12周</span><span class="btn btn-sm btn-disabled" data-i18n="courses.c3.btn">暂未开始</span></div>
         </div>
       </div>
     </div>
@@ -218,102 +222,126 @@
 <section class="resources" id="resources">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">RESOURCES</div>
-      <h2 class="section-title">学习资源</h2>
-      <p class="section-desc">书籍、导读文章、视频与音频资源</p>
+      <div class="section-label" data-i18n="resources.label">RESOURCES</div>
+      <h2 class="section-title" data-i18n="resources.title">学习资源</h2>
+      <p class="section-desc" data-i18n="resources.desc">书籍、导读文章、视频与音频资源</p>
     </div>
-    <h3 class="sub-heading">📚 书籍介绍</h3>
+    <h3 class="sub-heading" data-i18n="resources.books">📚 书籍介绍</h3>
     <div class="books-grid">
       <div class="book-card">
         <div class="book-cover"><img src="assets/book-mfl-en.jpg" alt="Mindfulness for Life"></div>
         <div class="book-info">
           <h4>Mindfulness for Life</h4>
-          <p class="book-author">Willem Kuyken</p>
-          <p class="book-desc">正念生活的奠基之作，从科学角度阐述正念如何改变生活。</p>
-          <p class="book-reason"><strong>推荐理由：</strong>将正念与认知科学完美融合，适合所有人阅读。</p>
+          <p class="book-author" data-i18n="book1.author">Willem Kuyken</p>
+          <p class="book-desc" data-i18n="book1.desc">正念生活的奠基之作，从科学角度阐述正念如何改变生活。</p>
+          <p class="book-reason" data-i18n="book1.reason">将正念与认知科学完美融合，适合所有人阅读。</p>
         </div>
       </div>
       <div class="book-card">
         <div class="book-cover"><img src="assets/book-zhinian-flower.jpg" alt=""></div>
         <div class="book-info">
-          <h4>此刻正念是一枝花</h4>
-          <p class="book-author">乔恩·卡巴金</p>
-          <p class="book-desc">正念减压疗法创始人的经典之作，以诗意的语言引导读者回到当下。</p>
-          <p class="book-reason"><strong>推荐理由：</strong>正念入门必读，文字优美，发人深省。</p>
+          <h4 data-i18n="book2.title">此刻正念是一枝花</h4>
+          <p class="book-author" data-i18n="book2.author">乔恩·卡巴金</p>
+          <p class="book-desc" data-i18n="book2.desc">正念减压疗法创始人的经典之作，以诗意的语言引导读者回到当下。</p>
+          <p class="book-reason" data-i18n="book2.reason">正念入门必读，文字优美，发人深省。</p>
         </div>
       </div>
       <div class="book-card">
         <div class="book-cover"><img src="assets/book-miracle-of-mindfulness.jpg" alt=""></div>
         <div class="book-info">
-          <h4>正念的奇迹</h4>
-          <p class="book-author">一行禅师</p>
-          <p class="book-desc">禅修大师一行禅师的经典著作，讲述如何在日常中修习正念。</p>
-          <p class="book-reason"><strong>推荐理由：</strong>简洁深刻，将正念融入吃饭、走路等日常活动。</p>
+          <h4 data-i18n="book3.title">正念的奇迹</h4>
+          <p class="book-author" data-i18n="book3.author">一行禅师</p>
+          <p class="book-desc" data-i18n="book3.desc">禅修大师一行禅师的经典著作，讲述如何在日常中修习正念。</p>
+          <p class="book-reason" data-i18n="book3.reason">简洁深刻，将正念融入吃饭、走路等日常活动。</p>
         </div>
       </div>
     </div>
-    <h3 class="sub-heading">📖 导读文章</h3>
+    <h3 class="sub-heading" data-i18n="resources.articles">📖 导读文章</h3>
     <div class="articles-grid">
-      <a href="https://mp.weixin.qq.com/s/qrHDIWk8rpgmLRu6WxQiBQ" class="article-card" target="_blank" rel="noopener"><h4>Willem Kuyken教授介绍：全球正念研究与教育的先锋</h4><p>专注于抑郁症的预防、心理健康的促进和全生命周期的身心发展</p></a>
-      <a href="https://mp.weixin.qq.com/s/79UkHaI8oeQ9rV-WlFYBbw" class="article-card" target="_blank" rel="noopener"><h4>当古老智慧遇见现代心理学，会发生什么？</h4><p>当东方的正念修行与西方的心理治疗真正对话，我们又将如何重新理解"正念"？</p></a>
-      <a href="https://mp.weixin.qq.com/s/xbiJ2-GXhFsX6KnHSZAQcg" class="article-card" target="_blank" rel="noopener"><h4>介绍4-7-8呼吸法</h4><p>是一种深呼吸技术，旨在帮助放松身心、减轻焦虑和促进睡眠</p></a>
+      <a href="https://mp.weixin.qq.com/s/qrHDIWk8rpgmLRu6WxQiBQ" class="article-card" target="_blank" rel="noopener"><h4 data-i18n="article1.title">Willem Kuyken教授介绍：全球正念研究与教育的先锋</h4><p data-i18n="article1.desc">专注于抑郁症的预防、心理健康的促进和全生命周期的身心发展</p></a>
+      <a href="https://mp.weixin.qq.com/s/79UkHaI8oeQ9rV-WlFYBbw" class="article-card" target="_blank" rel="noopener"><h4 data-i18n="article2.title">当古老智慧遇见现代心理学，会发生什么？</h4><p data-i18n="article2.desc">当东方的正念修行与西方的心理治疗真正对话，我们又将如何重新理解"正念"？</p></a>
+      <a href="https://mp.weixin.qq.com/s/xbiJ2-GXhFsX6KnHSZAQcg" class="article-card" target="_blank" rel="noopener"><h4 data-i18n="article3.title">介绍4-7-8呼吸法</h4><p data-i18n="article3.desc">是一种深呼吸技术，旨在帮助放松身心、减轻焦虑和促进睡眠</p></a>
     </div>
-    <h3 class="sub-heading">🎬 视频 / 音频</h3>
-    <p class="res-note">以下内容需注册登录后查看完整视频</p>
+    <h3 class="sub-heading" data-i18n="resources.media">🎬 视频 / 音频</h3>
+    <p class="res-note" data-i18n="resources.media.note">以下内容需注册登录后查看完整视频</p>
     <div class="media-grid">
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1Fuw2zDEYA&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV1Fuw2zDEYA&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV1Fuw2zDEYA.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>第四章-感恩生命之美</h4>
+        <h4 data-i18n="media1.title">第四章-感恩生命之美</h4>
       </div>
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV16uw2zSEsh&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV16uw2zSEsh&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV16uw2zSEsh.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>自然资源-我们的身与心</h4>
+        <h4 data-i18n="media2.title">自然资源-我们的身与心</h4>
       </div>
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1CFw2zdEXM&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV1CFw2zdEXM&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV1CFw2zdEXM.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>第六章：我们如何应对压力和困境</h4>
+        <h4 data-i18n="media3.title">第六章：我们如何应对压力和困境</h4>
       </div>
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1eHw2zrEnp&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV1eHw2zrEnp&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV1eHw2zrEnp.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>关于"视角"</h4>
+        <h4 data-i18n="media4.title">关于"视角"</h4>
       </div>
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1v7w2z5EfS&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV1v7w2z5EfS&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV1v7w2z5EfS.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>第九章：明智的回应</h4>
+        <h4 data-i18n="media5.title">第九章：明智的回应</h4>
       </div>
       <div class="media-card media-card-video">
         <div class="media-thumb media-thumb-iframe">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1XCw1zqEtc&autoplay=0"
+          <iframe data-src="https://player.bilibili.com/player.html?bvid=BV1XCw1zqEtc&autoplay=1"
             frameborder="0" allowfullscreen
             style="width:100%;height:100%;border-radius:inherit;"></iframe>
+          <div class="video-overlay" onclick="playBilibili(this)">
+            <img src="https://i0.hdslb.com/bfs/archive/BV1XCw1zqEtc.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="视频封面">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
           <span class="media-badge">视频</span>
         </div>
-        <h4>第十二章：活出丰盈的人生</h4>
+        <h4 data-i18n="media6.title">第十二章：活出丰盈的人生</h4>
       </div>
     </div>
   </div>
@@ -323,36 +351,36 @@
 <section class="teachers" id="teachers">
   <div class="container">
     <div class="section-header" style="text-align:center;">
-      <div class="section-label">TEACHERS & NETWORK</div>
-      <h2 class="section-title">教师与合作网络</h2>
-      <p class="section-desc" style="margin:0 auto;">项目并非个人项目，而是一个学习网络</p>
+      <div class="section-label" data-i18n="teachers.label">TEACHERS & NETWORK</div>
+      <h2 class="section-title" data-i18n="teachers.title">教师与合作网络</h2>
+      <p class="section-desc" style="margin:0 auto;" data-i18n="teachers.desc">项目并非个人项目，而是一个学习网络</p>
     </div>
-    <h3 class="sub-heading">核心教师 / 顾问</h3>
+    <h3 class="sub-heading" data-i18n="teachers.core">核心教师 / 顾问</h3>
     <div class="teachers-grid">
       <div class="teacher-card">
         <div class="teacher-photo"><img src="assets/willem-kuyken.jpg" alt="Willem Kuyken"></div>
         <h4>Willem Kuyken</h4>
-        <p class="teacher-title">国际顾问</p>
-        <p class="teacher-bio">牛津大学正念中心主任，正念认知疗法国际权威研究者，拥有20余年正念研究与教学经验。</p>
+        <p class="teacher-title" data-i18n="teacher1.role">国际顾问</p>
+        <p class="teacher-bio" data-i18n="teacher1.bio">牛津大学正念中心主任，正念认知疗法国际权威研究者，拥有20余年正念研究与教学经验。</p>
       </div>
       <div class="teacher-card">
         <div class="teacher-photo"><img src="assets/ma-jiatong.jpg" alt="马嘉瞳"></div>
-        <h4>马嘉瞳</h4>
-        <p class="teacher-title">MfL 中国区负责人</p>
-        <p class="teacher-bio">致力于将牛津大学正念课程体系引入中国，推动正念在中国的本土化发展与传播。</p>
+        <h4 data-i18n="teacher2.name">马嘉瞳</h4>
+        <p class="teacher-title" data-i18n="teacher2.role">MfL 中国区负责人</p>
+        <p class="teacher-bio" data-i18n="teacher2.bio">致力于将牛津大学正念课程体系引入中国，推动正念在中国的本土化发展与传播。</p>
       </div>
     </div>
-    <h3 class="sub-heading">合作机构</h3>
+    <h3 class="sub-heading" data-i18n="teachers.partners">合作机构</h3>
     <div class="partners-grid">
-      <div class="partner-card"><span class="partner-icon">🎓</span><h4>学术合作</h4><p>与国内外高校及研究机构合作开展正念研究</p></div>
-      <div class="partner-card"><span class="partner-icon">👥</span><h4>社群合作</h4><p>与正念社群共同推广正念生活方式</p></div>
-      <div class="partner-card"><span class="partner-icon">🏥</span><h4>医疗合作</h4><p>与医疗机构合作，将正念融入心理健康服务</p></div>
-      <div class="partner-card"><span class="partner-icon">🌏</span><h4>国际合作</h4><p>与国际正念组织建立长期合作关系</p></div>
+      <div class="partner-card"><span class="partner-icon">🎓</span><h4 data-i18n="partner1.title">学术合作</h4><p data-i18n="partner1.desc">与国内外高校及研究机构合作开展正念研究</p></div>
+      <div class="partner-card"><span class="partner-icon">👥</span><h4 data-i18n="partner2.title">社群合作</h4><p data-i18n="partner2.desc">与正念社群共同推广正念生活方式</p></div>
+      <div class="partner-card"><span class="partner-icon">🏥</span><h4 data-i18n="partner3.title">医疗合作</h4><p data-i18n="partner3.desc">与医疗机构合作，将正念融入心理健康服务</p></div>
+      <div class="partner-card"><span class="partner-icon">🌏</span><h4 data-i18n="partner4.title">国际合作</h4><p data-i18n="partner4.desc">与国际正念组织建立长期合作关系</p></div>
     </div>
     <a href="https://wx0afe66d9a97fccd3.lrn.nineteenj.cn/kpv2p/6mwjw6/?#/homePage/form?relId=56946&relType=1&type=2&timestamp=1773465592" class="collab-cta" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;">
-      <h3>成为合作伙伴</h3>
-      <p>我们欢迎各类机构与个人加入正念传播的网络</p>
-      <span class="btn btn-primary">联系合作</span>
+      <h3 data-i18n="teachers.collab.title">成为合作伙伴</h3>
+      <p data-i18n="teachers.collab.desc">我们欢迎各类机构与个人加入正念传播的网络</p>
+      <span class="btn btn-primary" data-i18n="teachers.collab.btn">联系合作</span>
     </a>
   </div>
 </section>
@@ -361,22 +389,22 @@
 <section class="about-us" id="about-us">
   <div class="container">
     <div class="section-header" style="text-align:center;">
-      <div class="section-label">ABOUT US</div>
-      <h2 class="section-title">关于我们</h2>
+      <div class="section-label" data-i18n="about.label">ABOUT US</div>
+      <h2 class="section-title" data-i18n="about.title">关于我们</h2>
     </div>
     <div class="about-who">
-      <h3>我们是谁</h3>
-      <p>MfL（Mindfulness for Life）是一个致力于将牛津大学正念课程体系引入中国的学习网络。我们相信正念不仅是一种减压工具，更是促进人类繁荣的关键路径。</p>
+      <h3 data-i18n="about.who.title">我们是谁</h3>
+      <p data-i18n="about.who.desc">MfL（Mindfulness for Life）是一个致力于将牛津大学正念课程体系引入中国的学习网络。我们相信正念不仅是一种减压工具，更是促进人类繁荣的关键路径。</p>
     </div>
 
     <div class="vision">
-      <h3>愿景与使命</h3>
-      <p>让正念成为每个人触手可及的生活方式，从抑郁防治到促进人类繁荣，帮助更多人重建与生命的智慧关系。</p>
+      <h3 data-i18n="about.vision.title">愿景与使命</h3>
+      <p data-i18n="about.vision.desc">让正念成为每个人触手可及的生活方式，从抑郁防治到促进人类繁荣，帮助更多人重建与生命的智慧关系。</p>
     </div>
 
     <!-- 联系我们 -->
     <div class="about-who" style="margin-bottom:0;">
-      <h3>联系我们</h3>
+      <h3 data-i18n="about.contact.title">联系我们</h3>
       <div style="display:flex;gap:3rem;align-items:flex-start;flex-wrap:wrap;margin-top:1.2rem;">
         <div style="flex:1;min-width:200px;">
           <p style="font-size:0.95rem;color:var(--ink-soft);line-height:2.2;margin:0;">
@@ -389,13 +417,13 @@
             <div style="width:90px;height:90px;border-radius:8px;overflow:hidden;margin:0 auto 0.5rem;border:1px solid var(--sand-dark);">
               <img src="assets/wechat-personal-qr.jpg" alt="微信二维码" style="width:100%;height:100%;object-fit:cover;">
             </div>
-            <p style="font-size:0.78rem;color:var(--ink-muted);margin:0;">加微信备注正念生活</p>
+            <p style="font-size:0.78rem;color:var(--ink-muted);margin:0;" data-i18n="about.contact.wechat">加微信备注正念生活</p>
           </div>
           <div style="text-align:center;">
             <div style="width:90px;height:90px;border-radius:8px;overflow:hidden;margin:0 auto 0.5rem;border:1px solid var(--sand-dark);">
               <img src="assets/wechat-mp-qr.jpg" alt="公众号二维码" style="width:100%;height:100%;object-fit:cover;">
             </div>
-            <p style="font-size:0.78rem;color:var(--ink-muted);margin:0;">关注公众号</p>
+            <p style="font-size:0.78rem;color:var(--ink-muted);margin:0;" data-i18n="about.contact.mp">关注公众号</p>
           </div>
         </div>
       </div>
@@ -413,7 +441,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3 class="footer-logo">正念生活 <span>· Mindfulness for Life</span></h3>
-        <p class="footer-tagline">从抑郁防治到促进人类繁荣</p>
+        <p class="footer-tagline" data-i18n="footer.tagline">从抑郁防治到促进人类繁荣</p>
         <div class="footer-contact">
         </div>
       </div>
@@ -470,5 +498,15 @@ document.querySelectorAll('.course-card, .book-card, .media-card, .teacher-card,
   observer.observe(el);
 });
 </script>
+<script>
+function playBilibili(overlay) {
+  var iframe = overlay.previousElementSibling;
+  if (iframe && iframe.dataset.src) {
+    iframe.src = iframe.dataset.src;
+  }
+  overlay.style.display = 'none';
+}
+</script>
+<script src="i18n.js?v=4"></script>
 </body>
 </html>

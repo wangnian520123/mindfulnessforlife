@@ -204,8 +204,17 @@ a { color: inherit; text-decoration: none; }
 .media-thumb-iframe iframe { display: block; }
 .media-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .media-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: var(--shadow-md); }
-.media-badge { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.65rem; font-weight: 600; color: var(--white); background: var(--moss); padding: 0.15rem 0.5rem; border-radius: 4px; }
+.media-badge { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.65rem; font-weight: 600; color: var(--white); background: var(--moss); padding: 0.15rem 0.5rem; border-radius: 4px; z-index: 3; }
 .media-card h4 { font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-top: 0.8rem; }
+/* Video overlay cover */
+.media-thumb-iframe { position: relative; }
+.media-thumb-iframe iframe { display: block; }
+.video-overlay { position: absolute; inset: 0; cursor: pointer; z-index: 2; background: #000; }
+.video-overlay img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s; }
+.video-overlay:hover img { opacity: 0.85; }
+.video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; background: rgba(0,0,0,0.65); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.2s; pointer-events: none; }
+.video-overlay:hover .video-play-btn { background: rgba(61,90,69,0.9); transform: translate(-50%, -50%) scale(1.08); }
+.video-play-btn svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
 
 /* ==================== Teachers ==================== */
 .teachers { padding: var(--section-pad) 0; background: var(--white); }
