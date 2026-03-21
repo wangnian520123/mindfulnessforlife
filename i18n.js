@@ -132,6 +132,8 @@
       'media2.title': '自然资源-我们的身与心',
       'media3.title': '第六章：我们如何应对压力和困境',
       'media4.title': '关于"视角"',
+      'media5.title': '第九章：明智的回应',
+      'media6.title': '第十二章：活出丰盈的人生',
 
       /* ── Teachers & About ─────────────────────────────── */
       'teachers.label': 'TEACHERS & NETWORK',
