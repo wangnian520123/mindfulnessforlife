@@ -494,21 +494,34 @@ document.querySelectorAll('.course-card, .book-card, .media-card, .teacher-card,
 </script>
 <script src="i18n.js?v=4"></script>
 
+<!-- Video Modal -->
+<div id="videoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;" onclick="closeVideoModal(event)">
+  <div style="position:relative;width:90%;max-width:800px;aspect-ratio:16/9;">
+    <iframe id="videoModalIframe" src="" frameborder="0" allowfullscreen allow="autoplay"
+      style="width:100%;height:100%;border-radius:8px;"></iframe>
+    <button onclick="closeVideoModal()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">×</button>
+  </div>
+</div>
+
 <script>
 function playVideo(el, bvid) {
-  var p = el.parentNode;
-  var iframe = document.createElement('iframe');
-  iframe.src = 'https://player.bilibili.com/player.html?bvid=' + bvid + '&autoplay=1';
-  iframe.frameBorder = '0';
-  iframe.allowFullscreen = true;
-  iframe.style.cssText = 'width:100%;height:100%;border-radius:inherit;';
-  var badge = document.createElement('span');
-  badge.className = 'media-badge';
-  badge.textContent = '视频';
-  p.innerHTML = '';
-  p.appendChild(iframe);
-  p.appendChild(badge);
+  var modal = document.getElementById('videoModal');
+  var iframe = document.getElementById('videoModalIframe');
+  iframe.src = 'https://player.bilibili.com/player.html?bvid=' + bvid + '&autoplay=1&high_quality=1';
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
+function closeVideoModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  var modal = document.getElementById('videoModal');
+  var iframe = document.getElementById('videoModalIframe');
+  iframe.src = '';
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideoModal();
+});
 </script>
 </body>
 </html>
