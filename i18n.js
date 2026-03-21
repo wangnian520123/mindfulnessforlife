@@ -785,7 +785,7 @@
   // ─────────────────────────────────────────────────────────────
   //  Core engine
   // ─────────────────────────────────────────────────────────────
-  const STORAGE_KEY = 'mfl_lang';
+  const STORAGE_KEY = 'mfl_lang_v2';
 
   function t(key, lang) {
     return (dict[lang] && dict[lang][key]) || (dict['zh'] && dict['zh'][key]) || key;
@@ -817,8 +817,10 @@
   }
 
   function init() {
-    const saved = localStorage.getItem(STORAGE_KEY) || 'zh';
-    applyLang(saved);
+    // Force zh as default; only use saved preference if user has explicitly toggled
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const lang = (saved === 'zh' || saved === 'en') ? saved : 'zh';
+    applyLang(lang);
   }
 
   // ─────────────────────────────────────────────────────────────
