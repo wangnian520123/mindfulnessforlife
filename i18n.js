@@ -161,7 +161,7 @@
       'about.vision.desc':   '让正念成为每个人触手可及的生活方式，从抑郁防治到促进人类繁荣，帮助更多人重建与生命的智慧关系。',
       'about.volunteer.title': '加入志愿者',
       'about.volunteer.desc':  '加入志愿者团队，不仅仅让自己在服务中持续深化正念的学习，更有意义的是帮助更多人了解正念，从正念中受益。特别感谢参与书及视频翻译、支持威廉正念生活中国行的众多志愿者：海兰、杨漪、坤坤、Cici、**。',
-      'about.volunteer.btn':   '点击加入我们',
+      'about.volunteer.btn':   '报名志愿者',
       'about.contact.title': '联系我们',
       'about.contact.wechat':'加微信备注正念生活',
       'about.contact.mp':    '关注公众号',
