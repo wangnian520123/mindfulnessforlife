@@ -1,0 +1,23 @@
+/* Language toggle button — sits in nav-actions, left of the CTA */
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border: 1.5px solid #3d5a45;
+  border-radius: 4px;
+  background: transparent;
+  color: #3d5a45;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.lang-btn:hover {
+  background: #3d5a45;
+  color: #fff;
+}

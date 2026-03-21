@@ -1,0 +1,812 @@
+/**
+ * Mindfulness for Life — i18n Language Switch
+ *
+ * How to use:
+ *   1. Add  data-i18n="key"  to any element to auto-translate its textContent.
+ *   2. Add  data-i18n-html="key"  when the value contains HTML markup.
+ *   3. Language preference is persisted in localStorage under "mfl_lang".
+ *   4. To add new translatable content, add the key to BOTH zh and en objects.
+ */
+
+(function () {
+  'use strict';
+
+  // ─────────────────────────────────────────────────────────────
+  //  Translation dictionaries
+  // ─────────────────────────────────────────────────────────────
+  const dict = {
+    zh: {
+      /* ── Nav ─────────────────────────────────────────────── */
+      'nav.home':      '首页',
+      'nav.reading':   '共读计划',
+      'nav.courses':   '正念课程',
+      'nav.resources': '学习资源',
+      'nav.teachers':  '教师网络',
+      'nav.about':     '关于我们',
+      'nav.join':      '加入我们',
+      'nav.explore':   '探索课程',
+
+      /* ── index – Hero ───────────────────────────────────── */
+      'hero.tag':   '正念与人类繁荣',
+      'hero.sub':   '从抑郁防治到促进人类繁荣',
+      'hero.desc':  '正念，是对当下时刻不加评判的觉察，是一场从内在出发的宁静革命。',
+      'hero.cta1':  '了解正念繁荣 →',
+      'hero.cta2':  '加入我们',
+
+      /* ── index – Reading Banner ─────────────────────────── */
+      'readingBanner.label': 'MINDFUL READING',
+      'readingBanner.title': '正念共读与生活',
+      'readingBanner.desc':  '与同行者一起阅读、分享、践行正念生活',
+      'readingBanner.cta':   '了解更多 →',
+
+      /* ── index – Latest Events ─────────────────────────── */
+      'events.label':        'LATEST',
+      'events.title':        '最新活动',
+      'events.tag':          '讲座与工作坊',
+      'events.ev1.title':    '从"活着"到"活得好"',
+      'events.ev1.desc':     '正念与人类繁荣-从抑郁防治到促进人类繁荣',
+      'events.ev1.date':     '📅 2026年3月27日 - 2026年3月29日',
+      'events.ev1.loc':      '📍 国家心血管病中心阜外医院西院区',
+      'events.ev1.speaker':  '🎤 主讲嘉宾：牛津大学 Willem Kuyken 教授',
+
+      /* ── index – Reading / Leader Plan ─────────────────── */
+      'reading.label':  'READING & LEADING',
+      'reading.title':  '共读 / 带领者计划',
+      'reading.desc':   '以阅读为入口，以带领为深化，走进正念生活的核心',
+      'reading.tab1':   '共读计划',
+      'reading.tab2':   '带领者计划',
+
+      'reading.intro.title': '共读计划介绍',
+      'reading.intro.p':     '正念共读计划旨在通过集体阅读与分享，帮助参与者深入理解正念理念，将正念融入日常生活。每期共读围绕一本经典正念著作展开，由专业带领者引导讨论与实践。',
+      'reading.projects':    '共读项目',
+      'reading.p1.title':    '《牛津大学正念课-重建生命的智慧》共读营',
+      'reading.p1.desc':     'Mindfulness for Life 经典共读，8周深度阅读与实践',
+      'reading.p1.cta':      '了解详情',
+      'reading.p2.title':    '正念黑皮书实修精读营',
+      'reading.p2.desc':     '将科学心理学与东方智慧传统交织起来的深度尝试',
+      'reading.p2.cta':      '了解详情',
+
+      'faq.title': '常见问题 FAQ',
+      'faq.q1': '共读营需要什么基础？',
+      'faq.a1': '完全不需要任何正念基础，只需要一颗好奇和开放的心。',
+      'faq.q2': '共读营的时间安排？',
+      'faq.a2': '每期共读营为期 4-8 周，每周一次线上讨论，每次约 60-90 分钟。',
+      'faq.q3': '如何报名参加？',
+      'faq.a3': '关注我们的公众号，获取最新的共读营报名信息。',
+
+      'leader.intro.title': '带领者计划介绍',
+      'leader.intro.p1':    '带领者计划是为有志于推广正念共读的伙伴设计的培训项目。通过系统培训，帮助你成为一名合格的正念共读带领者，在社区中传播正念的种子。',
+      'leader.intro.p2':    '成为带领者，不仅是服务他人，更是自我修行的深化。',
+
+      /* ── index – Courses ──────────────────────────────── */
+      'courses.label':   'PROGRAMS',
+      'courses.title':   '正念课程',
+      'courses.desc':    '系统性正念训练体系，从入门到深化',
+      'courses.c1.tag':  '入门推荐',
+      'courses.c1.meta': '三日正念课 · 入门课',
+      'courses.c1.title':'3天介绍课',
+      'courses.c1.desc': '零基础开始的正念旅程，三天时间建立正念冥想的基本习惯。',
+      'courses.c1.dur':  '3天',
+      'courses.c1.btn':  '暂未开始',
+      'courses.c2.tag':  '牛津大学',
+      'courses.c2.meta': 'MBCT-L · 八周课程',
+      'courses.c2.title':'8周正念认知生活课程',
+      'courses.c2.desc': '牛津大学正念中心研发的核心课程，系统学习正念认知疗法。',
+      'courses.c2.dur':  '8周',
+      'courses.c2.btn':  '暂未开始',
+      'courses.c3.tag':  '进阶深化',
+      'courses.c3.meta': 'Take it Further · 十二周课程',
+      'courses.c3.title':'12周进阶深化',
+      'courses.c3.desc': '在八周课程基础上深入修习，建立终身正念练习的自主能力。',
+      'courses.c3.dur':  '12周',
+      'courses.c3.btn':  '暂未开始',
+
+      /* ── index – Resources ────────────────────────────── */
+      'resources.label':        'RESOURCES',
+      'resources.title':        '学习资源',
+      'resources.desc':         '书籍、导读文章、视频与音频资源',
+      'resources.books':        '📚 书籍介绍',
+      'resources.articles':     '📖 导读文章',
+      'resources.media':        '🎬 视频 / 音频',
+      'resources.media.note':   '以下内容需注册登录后查看完整视频',
+      'book1.title':   'Mindfulness for Life',
+      'book1.author':  'Willem Kuyken',
+      'book1.desc':    '正念生活的奠基之作，从科学角度阐述正念如何改变生活。',
+      'book1.reason':  '将正念与认知科学完美融合，适合所有人阅读。',
+      'book2.title':   '此刻正念是一枝花',
+      'book2.author':  '乔恩·卡巴金',
+      'book2.desc':    '正念减压疗法创始人的经典之作，以诗意的语言引导读者回到当下。',
+      'book2.reason':  '正念入门必读，文字优美，发人深省。',
+      'book3.title':   '正念的奇迹',
+      'book3.author':  '一行禅师',
+      'book3.desc':    '禅修大师一行禅师的经典著作，讲述如何在日常中修习正念。',
+      'book3.reason':  '简洁深刻，将正念融入吃饭、走路等日常活动。',
+      'article1.title':'Willem Kuyken教授介绍：全球正念研究与教育的先锋',
+      'article1.desc': '专注于抑郁症的预防、心理健康的促进和全生命周期的身心发展',
+      'article2.title':'当古老智慧遇见现代心理学，会发生什么？',
+      'article2.desc': '当东方的正念修行与西方的心理治疗真正对话，我们又将如何重新理解"正念"？',
+      'article3.title':'介绍4-7-8呼吸法',
+      'article3.desc': '是一种深呼吸技术，旨在帮助放松身心、减轻焦虑和促进睡眠',
+      'media.badge': '视频',
+      'media1.title': '第四章-感恩生命之美',
+      'media2.title': '自然资源-我们的身与心',
+      'media3.title': '第六章：我们如何应对压力和困境',
+      'media4.title': '关于"视角"',
+
+      /* ── Teachers & About ─────────────────────────────── */
+      'teachers.label': 'TEACHERS & NETWORK',
+      'teachers.title': '教师与合作网络',
+      'teachers.desc':  '项目并非个人项目，而是一个学习网络',
+      'about.label':    'ABOUT US',
+      'about.title':    '关于我们',
+
+      /* ── Footer ───────────────────────────────────────── */
+      'footer.tagline': '从抑郁防治到促进人类繁荣',
+      'footer.copy':    '© 2025 Mindfulness for Life · Oxford Mindfulness Centre',
+
+      /* ── mindfulness-flourishing.html ─────────────────── */
+      'fl.back':       '← 返回首页',
+      'fl.tag':        'MINDFULNESS · HUMAN FLOURISHING',
+      'fl.title':      '正念与人类繁荣',
+      'fl.sub':        '从抑郁防治到促进人类繁荣',
+      'fl.meta1':      '✍ Willem Kuyken · 牛津大学正念中心主任',
+      'fl.meta2':      '📖 正念认知疗法的成熟阶段',
+
+      'fl.quote1':     '人类从未像今天这样活得如此长久、行走得如此遥远、了解得如此之多，然而，对许多人而言，却同时伴随着一种分心与和生命中真正重要之事脱节的感觉。',
+      'fl.p1':         '父母为孩子的未来忧心忡忡；在工作中，人们感到负担沉重，并对未来感到焦虑；即便在生活表面"看起来还不错"的时候，某种本质性的东西却仿佛缺失了。这一悖论，正定义着我们的时代。',
+      'fl.stat1.num':  '72年',   'fl.stat1.label': '全球平均寿命（截至2020年）',
+      'fl.stat2.num':  '4,000周','fl.stat2.label': '一生约等于的周数',
+      'fl.stat3.num':  '26,000天','fl.stat3.label':'一生约等于的天数',
+      'fl.p2':         '面对有限而珍贵的生命，我们不得不问：什么才是"活得好"的人生？',
+
+      'fl.sec2.title': '从治疗，到预防，再到繁荣',
+      'fl.sec2.p1':    '正念认知疗法（MBCT）最初是为了预防抑郁症而发展出来的。而在过去 25 年中，我们逐渐发现：它向我们揭示了一个更深层的问题：人类如何在完整的一生中，活得好。',
+      'fl.sec2.h2':    '心理健康的全球挑战',
+      'fl.sec2.p2':    '世界卫生组织估计，抑郁症是全球第二大"伤残调整生命年"（DALYs）的致因。全球约有 10 亿人受到抑郁症的影响。大多数心理健康问题始于青春期后期，并往往持续贯穿一生。',
+      'fl.sec2.p3':    '牛津大学在认知疗法与正念取向疗法领域处于世界前沿。我们的研究证明了这些疗法可以与药物治疗相当，并能提供治疗结束后仍可持续使用的生命技能，这些成果已被纳入世界各地的临床实践指南。',
+      'fl.sec2.h3':    '令人警惕的现实',
+      'fl.sec2.p4':    '心理健康状况整体上正在恶化，尤其是在年轻人群体中。一个规模高达 5.6 万亿美元的全球健康产业迅速崛起，但由于参与度不足，这一产业往往难以带来可持续、真正有意义的改变。',
+
+      'fl.sec3.title': '我们可以，也必须，做得更好',
+      'fl.sec3.p':     '为了真正改善人类的心理健康，我们需要：',
+      'fl.l1.title':   '持续改进心理学干预方式',
+      'fl.l1.desc':    '不断完善以证据为基础的正念与认知疗法，确保其有效性与适用性。',
+      'fl.l2.title':   '确保广泛的可及性',
+      'fl.l2.desc':    '让更多人——无论文化背景、经济条件——都能获得这些支持。',
+      'fl.l3.title':   '在问题发生之前进行预防',
+      'fl.l3.desc':    '从青少年阶段开始，培养终身可用的心理健康能力。',
+      'fl.l4.title':   '在更大范围内促进健康与繁荣',
+      'fl.l4.desc':    '将目标从"消除疾病"拓展到"促进人类蓬勃发展"。',
+
+      'fl.sec4.title': '繁荣连续谱',
+      'fl.sec4.p1':    '我们需要为个体与组织提供资源，支持他们在从抑郁到蓬勃发展这一连续谱上的不同阶段：',
+      'fl.sec4.p2':    '我们的研究正在逐步回答关键问题：什么方法真正有效？如何确保心理干预具有可规模化推广的可能性？',
+
+      'fl.sec5.title': '面向 2050 的愿景',
+      'fl.sec5.quote': '一个不再被抑郁的毁灭性影响所主导的世界，一个个体能够繁荣生长，并具备资源应对时代挑战的世界。',
+      'fl.sec5.p':     '正念生活融合了古老智慧与现代心理学，旨在教授终身可用的能力；在个人、家庭、学校、职场与社群中促进心理韧性；提供可及、投入感强且具有包容性的学习体验。',
+
+      'fl.sec6.title':  '正念生活 · 三层课程体系',
+      'fl.sec6.p':      '「正念生活」项目可根据不同生命阶段与生活情境进行调整，随着个体人生的发展而演进。',
+      'fl.l1.title': '正念入门课程',
+      'fl.l1.desc':  '面向所有人，教授基础能力。无需任何正念基础，适合初次接触者。',
+      'fl.l2.title': '正念生活 · 八次课程',
+      'fl.l2.desc':  '聚焦更深层的参与与生活整合。基于牛津大学 MBCT-L 核心课程体系。',
+      'fl.l3.title': '12 次进阶团体课程',
+      'fl.l3.desc':  '提供系统、持续的终身学习路径，适合希望深化实践的学员。',
+      'fl.toc.1': '时代的悖论',
+      'fl.toc.2': '从治疗到繁荣',
+      'fl.toc.3': '我们必须做得更好',
+      'fl.toc.4': '繁荣连续谱',
+      'fl.toc.5': '2050 愿景',
+      'fl.toc.6': '三层课程体系',
+      'fl.rel.c1': '🌱 3天正念入门课',
+      'fl.rel.c2': '🌿 8周 MBCT-L 课程',
+      'fl.rel.c3': '🌳 12周进阶深化',
+
+      /* ── fl intro ── */
+      'fl.intro.p1': '人类从未像今天这样活得如此长久，然而许多人却感受到分心与脱节。',
+      'fl.intro.p2': '父母忧虑孩子的未来，人们在工作中感到负担沉重。这一悖论，正定义着我们的时代。',
+      'fl.intro.p3': '面对有限而珍贵的生命，我们不得不问：什么才是"活得好"的人生？',
+      'fl.sec5.vision': '一个不再被抑郁主导的世界，一个个体能够繁荣生长的世界。',
+
+      /* ── reading-camp extras ── */
+      'rc.hero.btn':    '加入共读/带领者计划',
+      'rc.plan.desc':   '以阅读为入口，以带领为深化，走进正念生活的核心',
+      'rc.books.heading': '共读书目',
+      'rc.b1.sub':      '重建生命的智慧',
+      'rc.b1.title':    '《牛津大学正念课》',
+      'rc.b2.sub':      '正念生活',
+      'rc.lc1.desc':    '在当地组织正念读书营，带领小组进行系统性的正念阅读与实践。',
+      'rc.lc2.desc':    '成为正念理念的传播者，在所在城市推广 Mindfulness for Life 的价值。',
+      'rc.lc3.desc':    '建立并维护本地学习社群，让正念实践在更多人的生活中扎根。',
+      'rc.lc4.desc':    '获得正念明心（北京）教育咨询有限公司的官方授权，成为品牌合作伙伴。',
+      'rc.r1.text':     '<strong>正念读书营带领者：</strong>负责在当地组织、策划并带领正念读书营活动',
+      'rc.r2.text':     '<strong>正念文化传播大使：</strong>在您所在城市推广正念理念，传播 Mindfulness for Life 品牌价值',
+      'rc.r3.text':     '<strong>学习社群建设者：</strong>建立、维护并发展当地的 Mindfulness for Life 学习社群',
+      'rc.r4.text':     '<strong>品牌合作伙伴：</strong>作为正念明心（北京）教育咨询有限公司的授权合作伙伴',
+      'rc.r1.label': '正念读书营带领者：',
+      'rc.r2.label': '正念文化传播大使：',
+      'rc.r3.label': '学习社群建设者：',
+      'rc.r4.label': '品牌合作伙伴：',
+      /* ── book panels ZH ── */
+      'rc.b1.panel.title': '《牛津大学正念课：重建生命的智慧》',
+      'rc.b1.panel.authors': '克里斯蒂娜·费尔德曼 · 威廉·库肯 著 | 马嘉瞳 译',
+      'rc.b1.p1': '生活多烦恼，我们每个人都可能会遇到病痛、抑郁、焦虑等，但我们并非一定要与之苦苦相伴，我们可以掌控自己的人生。',
+      'rc.b1.p2': '威廉·库肯和克里斯蒂娜·费尔德曼分享重建生命的智慧，陪伴我们穿越苦恼与苦痛，为更好地掌控人生提供路线图。',
+      'rc.b1.p3': '本书基于MBSR与MBCT，融合古老智慧和心理学知识，搭配正念练习及真实蜕变案例，活出友善、慈悲、喜悦和平等心。',
+      'rc.endorsements': '好评推荐',
+      'rc.b1.q1': '"一部划时代的巨作。本书阐述了正念的本质与源流，揭示其深厚的伦理根基、临床应用与强大的疗愈潜能。"',
+      'rc.b1.q1.attr': '—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压疗法（MBSR）创始人',
+      'rc.b1.q2': '"作者将冥想修习、心理学专业与最新神经科学研究融为一体，绘制出一幅关于心灵的完整地图。"',
+      'rc.b1.q2.attr': '—— 约瑟夫·戈德斯坦（Joseph Goldstein），美国巴瑞内观禅修中心联合创始人',
+      'rc.b1.q3': '"本书为21世纪的正念实践提供了迫切需要的全景图。对所有正念取向的学生与教师而言，这本书都是必读之作。"',
+      'rc.b1.q3.attr': '—— 马克·威廉姆斯（Mark Williams）博士，英国牛津大学临床心理学名誉教授',
+      'rc.b1.q4': '"这本著作搭建起佛教心理学与当代科学的桥梁，有潜力从根本上转变我们的视角，并为个人与社群缓解痛苦。"',
+      'rc.b1.q4.attr': '—— 丽贝卡·克莱恩（Rebecca Crane）博士，英国班戈大学正念研究与实践中心主任',
+      'rc.authors.label': '作者 & 译者',
+      'rc.b1.a1.name': '克里斯蒂娜·费尔德曼 · 作者',
+      'rc.b1.a1.bio': '正念领域知名资深指导老师。曾在英国埃克塞特大学与荷兰拉德堡德大学带领多个正念研究生项目，是英国菩提学院（Bodhi College）核心导师。',
+      'rc.b1.a2.name': '威廉·库肯 · 作者',
+      'rc.b1.a2.bio': '英国牛津大学正念与心理科学教授（Ritblat讲席教授）、正念中心主任。已发表150余篇学术期刊论文，多年入选全球高被引科学家前1%。',
+      'rc.b1.t1.name': '马嘉瞳 · 译者',
+      'rc.b1.t1.bio': '牛津正念基金会MBCT认证老师，MBSR合格师资，英国正念网络注册督导师。现任中国生命关怀协会与北京心理卫生协会静观专委会常务委员。',
+      'rc.b2.panel.title': '《正念生活》Mindfulness for Life',
+      'rc.b2.panel.authors': '威廉·库肯 著 | 马嘉瞳 译',
+      'rc.b2.p1': '正念的入门非常简单，人们往往几乎立刻就能感受到益处。然而许多人在短时间后就中断了练习——库肯教授指出这是因为传统正念训练与日常生活距离过远。',
+      'rc.b2.p2': '这本"新一代"正念指南将正念带回日常，通过易于融入生活的方式教授核心技能，帮助你建立可持续、有目标感的个人练习。',
+      'rc.b2.p3': '本书交织古老智慧与现代科学心理学，收录真实故事、经典引言与反思提问，配有音频轨与视频资料，助你切实培养并深化正念实践。',
+      'rc.b2.q1': '"这是一本值得信赖的路线图，指导我们以更具意图、充满智慧地应对生活的起起伏伏。最重要的是，学会培养自我主导的能力。"',
+      'rc.b2.q1.attr': '—— 乔恩·卡巴金（Jon Kabat-Zinn），正念减压课程创始人',
+      'rc.b2.q2': '"这本书不仅是关于内在的改变，还教会我们如何生活。Kuyken博士帮助我们从评判、厌恶转向好奇与善意。"',
+      'rc.b2.q2.attr': '—— Christina Feldman，《无限心灵》作者',
+      'rc.b2.q3': '"威廉·库肯博士阐释了正念练习如何帮助你重新连接生活。无论是正念初学者还是资深修习者，这都是一本值得珍藏的著作。"',
+      'rc.b2.q3.attr': '—— 马克·威廉姆斯（Mark Williams），《正念穿越抑郁之道》合著者',
+      'rc.b2.a1.name': '威廉·库肯 · 作者',
+      'rc.b2.a1.bio': '英国牛津大学正念与心理科学教授（Ritblat讲席教授）、正念中心主任。已发表150余篇学术期刊论文，多年入选全球高被引科学家前1%。著有《正念生活》，合著《牛津大学正念课》。',
+      'rc.b2.t1.name': '马嘉瞳 · 译者',
+      'rc.b2.t1.bio': '牛津正念基金会MBCT认证老师，MBSR合格师资，英国正念网络注册督导师，班戈大学签约正念师资培训师。现任中国生命关怀协会与北京心理卫生协会静观专委会常务委员。',
+      'fl.c1.title':    '正念入门课程',
+      'fl.c1.desc':     '面向所有人，教授基础能力。无需任何正念基础，适合初次接触者。',
+      'fl.c2.title':    '正念生活 · 八次课程',
+      'fl.c2.desc':     '聚焦更深层的参与与生活整合。基于牛津大学 MBCT-L 核心课程体系。',
+      'fl.c3.title':    '12 次进阶团体课程',
+      'fl.c3.desc':     '提供系统、持续的终身学习路径，适合希望深化实践的学员。',
+
+      'fl.cta.title':  '开始你的正念之旅',
+      'fl.cta.desc':   '从一堂课开始，探索正念如何改变你的生活',
+      'fl.cta.btn':    '探索课程 →',
+
+      'fl.toc.label':  '目录',
+      'fl.toc1': '时代的悖论', 'fl.toc2': '从治疗到繁荣',
+      'fl.toc3': '我们必须做得更好', 'fl.toc4': '繁荣连续谱',
+      'fl.toc5': '2050 愿景',  'fl.toc6': '三层课程体系',
+      'fl.author.label': '关于作者',
+      'fl.author.role':  '牛津大学正念中心主任，正念认知疗法国际权威研究者',
+      'fl.related.label':'相关课程',
+      'fl.related.c1':   '🌱 3天正念入门课',
+      'fl.related.c2':   '🌿 8周 MBCT-L 课程',
+      'fl.related.c3':   '🌳 12周进阶深化',
+
+      /* ── reading-camp.html ────────────────────────────── */
+      'rc.hero.title': '正念生活，不虚此生',
+      'rc.hero.cta':   '加入共读/带领者计划',
+      'rc.plan.title': '共读/带领者计划',
+      'rc.plan.sub':   '以阅读为入口，以带领为深化，走进正念生活的核心',
+      'rc.books.label':'共读书目',
+
+      'rc.b1.sub':    '重建生命的智慧',
+      'rc.b1.title':  '《牛津大学正念课》',
+      'rc.b1.authors':'克里斯蒂娜·费尔德曼\n威廉·库肯 著 · 马嘉瞳 译',
+      'rc.b2.sub':    '正念生活',
+      'rc.b2.title':  '《Mindfulness for Life》',
+      'rc.b2.author': 'Willem Kuyken, PhD 著',
+
+      'rc.p1.title':   '《牛津大学正念课：重建生命的智慧》',
+      'rc.p1.authors': '克里斯蒂娜·费尔德曼 · 威廉·库肯 著 | 马嘉瞳 译',
+      'rc.p1.p1': '生活多烦恼，我们每个人都可能会遇到病痛、抑郁、焦虑、烦躁、怀疑、恐惧、成瘾等，但我们并非一定要与之苦苦相伴，我们可以掌控自己的人生。',
+      'rc.p1.p2': '牛津大学正念中心主任威廉·库肯和国际知名正念指导老师克里斯蒂娜·费尔德曼，分享重建生命的智慧，陪伴我们穿越生活中常见的苦恼与苦痛，为我们更好地掌控自己的人生提供了路线图。',
+      'rc.p1.p3': '本书基于 MBSR、MBCT，融合了古老智慧和心理学知识，搭配了正念练习及真实蜕变案例，让我们一步一步靠近那个崩溃的自己，活出友善、慈悲、喜悦和平等心，过上向往的生活。',
+      'rc.p1.endorse': '好评推荐',
+      'rc.p1.authors_label': '作者 & 译者',
+
+      'rc.p2.title':   '《正念生活》Mindfulness for Life',
+      'rc.p2.authors': '威廉·库肯 著 | 马嘉瞳 译',
+      'rc.p2.p1': '正念的入门非常简单，人们往往几乎立刻就能感受到益处。然而，为何许多最初的热情者在短时间后就中断了练习？牛津大学教授威廉·库肯指出，这是因为传统的正念训练与我们的日常生活距离过远。',
+      'rc.p2.p2': '这本"新一代"正念指南将正念真正带回日常，帮助你建立一套可持续、有目标感且充满回报的个人练习——不仅是当下，更能受用多年。',
+      'rc.p2.p3': '本书交织古老智慧与现代科学心理学，收录真实故事、经典引言、反思提问，配有音频轨与配套网站的视频资料，助你在生活中切实培养并深化正念实践。',
+      'rc.p2.endorse': '好评推荐',
+      'rc.p2.authors_label': '作者 & 译者',
+
+      'rc.recruit.title':    '读书营招募',
+      'rc.recruit.header':   '您将收获什么：',
+      'rc.r1.strong': '正念读书营带领者：',
+      'rc.r1.text':   '负责在当地组织、策划并带领正念读书营活动',
+      'rc.r2.strong': '正念文化传播大使：',
+      'rc.r2.text':   '在您所在城市推广正念理念，传播 Mindfulness for Life 品牌价值',
+      'rc.r3.strong': '学习社群建设者：',
+      'rc.r3.text':   '建立、维护并发展当地的 Mindfulness for Life 学习社群',
+      'rc.r4.strong': '品牌合作伙伴：',
+      'rc.r4.text':   '作为正念明心（北京）教育咨询有限公司的授权合作伙伴',
+
+      'rc.leader.title': '成为读书营带领者',
+      'rc.leader.desc':  '加入我们的带领者计划，与志同道合的伙伴一起，在更广泛的社群中传播正念的力量。',
+      'rc.lc1.title': '组织与带领',
+      'rc.lc1.desc':  '在当地组织正念读书营，带领小组进行系统性的正念阅读与实践。',
+      'rc.lc2.title': '文化传播',
+      'rc.lc2.desc':  '成为正念理念的传播者，在所在城市推广 Mindfulness for Life 的价值。',
+      'rc.lc3.title': '社群建设',
+      'rc.lc3.desc':  '建立并维护本地学习社群，让正念实践在更多人的生活中扎根。',
+      'rc.lc4.title': '授权合作',
+      'rc.lc4.desc':  '获得正念明心（北京）教育咨询有限公司的官方授权，成为品牌合作伙伴。',
+
+      'rc.cta.title': '准备好了吗？',
+      'rc.cta.desc':  '加入正念生活共读营，开启一段深度阅读与实践之旅',
+      'rc.cta.btn':   '立即加入 →',
+    },
+
+    en: {
+      /* ── Nav ─────────────────────────────────────────────── */
+      'nav.home':      'Home',
+      'nav.reading':   'Reading Plan',
+      'nav.courses':   'Courses',
+      'nav.resources': 'Resources',
+      'nav.teachers':  'Teachers',
+      'nav.about':     'About Us',
+      'nav.join':      'Join Us',
+      'nav.explore':   'Explore Courses',
+
+      /* ── index – Hero ───────────────────────────────────── */
+      'hero.tag':  'Mindfulness & Human Flourishing',
+      'hero.sub':  'From Depression Prevention to Human Flourishing',
+      'hero.desc': 'Mindfulness is the non-judgmental awareness of the present moment — a quiet revolution that starts from within.',
+      'hero.cta1': 'Explore Flourishing →',
+      'hero.cta2': 'Join Us',
+
+      /* ── index – Reading Banner ─────────────────────────── */
+      'readingBanner.label': 'MINDFUL READING',
+      'readingBanner.title': 'Mindful Reading & Living',
+      'readingBanner.desc':  'Read, share, and practice mindfulness together with fellow travelers',
+      'readingBanner.cta':   'Learn More →',
+
+      /* ── index – Latest Events ─────────────────────────── */
+      'events.label':       'LATEST',
+      'events.title':       'Latest Events',
+      'events.tag':         'Lecture & Workshop',
+      'events.ev1.title':   'From "Surviving" to "Thriving"',
+      'events.ev1.desc':    'Mindfulness & Human Flourishing — From Depression Prevention to Promoting Human Flourishing',
+      'events.ev1.date':    '📅 March 27–29, 2026',
+      'events.ev1.loc':     '📍 Fuwai Hospital (West Campus), National Center for Cardiovascular Diseases',
+      'events.ev1.speaker': '🎤 Keynote: Prof. Willem Kuyken, University of Oxford',
+
+      /* ── index – Reading / Leader Plan ─────────────────── */
+      'reading.label':  'READING & LEADING',
+      'reading.title':  'Reading / Leader Programme',
+      'reading.desc':   'Enter through reading, deepen through leading — the heart of Mindfulness for Life',
+      'reading.tab1':   'Reading Plan',
+      'reading.tab2':   'Leader Programme',
+
+      'reading.intro.title': 'About the Reading Plan',
+      'reading.intro.p':     'The Mindful Reading Plan helps participants deepen their understanding of mindfulness through collective reading and sharing, integrating mindfulness into daily life. Each round centers on a classic mindfulness text, guided by a trained facilitator.',
+      'reading.projects':    'Reading Projects',
+      'reading.p1.title':    'Oxford Mindfulness Course Reading Camp',
+      'reading.p1.desc':     'Mindfulness for Life classic read — 8 weeks of deep reading and practice',
+      'reading.p1.cta':      'Learn More',
+      'reading.p2.title':    'Mindfulness Black Book Intensive Reading Camp',
+      'reading.p2.desc':     'A deep exploration weaving scientific psychology with Eastern wisdom traditions',
+      'reading.p2.cta':      'Learn More',
+
+      'faq.title': 'FAQ',
+      'faq.q1': 'Do I need any prior experience?',
+      'faq.a1': 'No prior mindfulness experience is needed — just an open and curious mind.',
+      'faq.q2': 'What is the schedule?',
+      'faq.a2': 'Each reading camp runs for 4–8 weeks with one online session per week, lasting about 60–90 minutes.',
+      'faq.q3': 'How do I sign up?',
+      'faq.a3': 'Follow our official account to get the latest registration information.',
+
+      'leader.intro.title': 'About the Leader Programme',
+      'leader.intro.p1':    'The Leader Programme is a training path designed for those who wish to facilitate mindful reading in their communities. Through systematic training, you will become a qualified Mindful Reading facilitator, planting seeds of mindfulness in your community.',
+      'leader.intro.p2':    'Becoming a leader is not only about serving others — it deepens your own practice.',
+
+      /* ── index – Courses ──────────────────────────────── */
+      'courses.label':   'PROGRAMS',
+      'courses.title':   'Courses',
+      'courses.desc':    'A systematic mindfulness training system — from foundations to advanced practice',
+      'courses.c1.tag':  'Beginner Friendly',
+      'courses.c1.meta': '3-Day Intro · Foundation',
+      'courses.c1.title':'3-Day Introduction',
+      'courses.c1.desc': 'Begin your mindfulness journey from scratch and build a basic meditation habit in three days.',
+      'courses.c1.dur':  '3 Days',
+      'courses.c1.btn':  'Coming Soon',
+      'courses.c2.tag':  'Oxford University',
+      'courses.c2.meta': 'MBCT-L · 8-Week Course',
+      'courses.c2.title':'8-Week Mindfulness-Based Cognitive Living',
+      'courses.c2.desc': 'The flagship course developed by the Oxford Mindfulness Centre — systematic MBCT training.',
+      'courses.c2.dur':  '8 Weeks',
+      'courses.c2.btn':  'Coming Soon',
+      'courses.c3.tag':  'Advanced',
+      'courses.c3.meta': 'Take it Further · 12-Week Course',
+      'courses.c3.title':'12-Week Advanced Deepening',
+      'courses.c3.desc': 'Build on the 8-week course to develop an autonomous, lifelong mindfulness practice.',
+      'courses.c3.dur':  '12 Weeks',
+      'courses.c3.btn':  'Coming Soon',
+
+      /* ── index – Resources ────────────────────────────── */
+      'resources.label':      'RESOURCES',
+      'resources.title':      'Learning Resources',
+      'resources.desc':       'Books, articles, videos and audio resources',
+      'resources.books':      '📚 Books',
+      'resources.articles':   '📖 Articles',
+      'resources.media':      '🎬 Videos / Audio',
+      'resources.media.note': 'Full videos require a registered account to view',
+      'book1.title':  'Mindfulness for Life',
+      'book1.author': 'Willem Kuyken',
+      'book1.desc':   'A foundational work on mindful living — exploring through science how mindfulness transforms life.',
+      'book1.reason': 'A seamless fusion of mindfulness and cognitive science, suitable for everyone.',
+      'book2.title':  'Wherever You Go, There You Are',
+      'book2.author': 'Jon Kabat-Zinn',
+      'book2.desc':   'A classic by the founder of MBSR, guiding readers back to the present moment with poetic language.',
+      'book2.reason': 'Essential reading for mindfulness beginners — beautifully written and thought-provoking.',
+      'book3.title':  'The Miracle of Mindfulness',
+      'book3.author': 'Thich Nhat Hanh',
+      'book3.desc':   'A classic by the Zen master on cultivating mindfulness in everyday life.',
+      'book3.reason': 'Concise and profound — weaving mindfulness into eating, walking, and daily activities.',
+      'article1.title':'Professor Willem Kuyken: Pioneer in Global Mindfulness Research & Education',
+      'article1.desc': 'Focused on depression prevention, mental health promotion, and mind-body development across the lifespan',
+      'article2.title':'When Ancient Wisdom Meets Modern Psychology — What Happens?',
+      'article2.desc': 'When Eastern mindfulness practice and Western psychotherapy truly dialogue, how do we reimagine "mindfulness"?',
+      'article3.title':'Introducing the 4-7-8 Breathing Technique',
+      'article3.desc': 'A deep-breathing technique designed to promote relaxation, reduce anxiety, and improve sleep',
+      'media.badge': 'Video',
+      'media1.title': 'Chapter 4 — Gratitude for Life\'s Beauty',
+      'media2.title': 'Natural Resources — Our Body and Mind',
+      'media3.title': 'Chapter 6: How We Respond to Stress and Challenges',
+      'media4.title': 'On "Perspective"',
+
+      /* ── Teachers & About ─────────────────────────────── */
+      'teachers.label': 'TEACHERS & NETWORK',
+      'teachers.title': 'Teachers & Network',
+      'teachers.desc':  'Not a solo project — a learning network',
+      'about.label':    'ABOUT US',
+      'about.title':    'About Us',
+
+      'teachers.core':  'Core Teachers & Advisors',
+      'teachers.partners': 'Partner Organisations',
+      'teachers.collab.title': 'Become a Partner',
+      'teachers.collab.desc':  'We welcome all organisations and individuals to join our mindfulness network',
+      'teachers.collab.btn':   'Get in Touch',
+      'teacher1.role': 'International Advisor',
+      'teacher1.bio':  'Director of the Oxford Mindfulness Centre, leading international MBCT researcher with 20+ years of experience.',
+      'teacher2.name': 'Ma Jiatong',
+      'teacher2.role': 'MfL China Lead',
+      'teacher2.bio':  'Dedicated to bringing the Oxford Mindfulness curriculum to China.',
+      'partner1.title': 'Academic',      'partner1.desc': 'Collaborating with universities and research institutes on mindfulness research',
+      'partner2.title': 'Community',     'partner2.desc': 'Partnering with communities to promote mindful living',
+      'partner3.title': 'Healthcare',    'partner3.desc': 'Integrating mindfulness into mental health services',
+      'partner4.title': 'International', 'partner4.desc': 'Long-term partnerships with global mindfulness organisations',
+      'about.who.title':     'Who We Are',
+      'about.who.desc':      'MfL is a learning network bringing Oxford Mindfulness to China. We believe mindfulness is a key pathway to human flourishing.',
+      'about.vision.title':  'Vision & Mission',
+      'about.vision.desc':   'To make mindfulness accessible for everyone — from preventing depression to promoting human flourishing.',
+      'about.contact.title': 'Contact Us',
+      'about.contact.wechat':'Add WeChat — note: Mindfulness Life',
+      'about.contact.mp':    'Follow our Official Account',
+      'event1.title':   'From "Surviving" to "Thriving"',
+      'event1.desc':    'Mindfulness & Human Flourishing — From Depression Prevention to Flourishing',
+      'event1.date':    '\U0001f4c5 27 March - 29 March 2026',
+      'event1.loc':     '\U0001f4cd National Center for Cardiovascular Diseases, Fuwai Hospital West',
+      'event1.speaker': '\U0001f3a4 Speaker: Prof. Willem Kuyken, University of Oxford',
+      'hero.cta1':  'Explore Mindful Flourishing →',
+      'readingBanner.cta': 'Learn More →',
+      'reading.desc':   'Reading as a gateway, leading as a deepening',
+      'reading.tab1':   'Reading Circle',
+      'reading.tab2':   'Leader Programme',
+      'reading.intro.title': 'About the Reading Circle',
+      'reading.intro.p': 'The Mindful Reading Circle uses collective reading to help participants weave mindfulness into daily life.',
+      'reading.projects': 'Reading Projects',
+      'reading.p1.title': '"Mindfulness for Life" Reading Camp',
+      'reading.p1.desc':  'Classic MfL reading group — 8 weeks of deep reading and practice',
+      'reading.p1.cta':   'Learn More',
+      'reading.p2.title': 'Mindfulness Black Book Intensive Camp',
+      'reading.p2.desc':  'A deep exploration weaving scientific psychology with Eastern wisdom',
+      'faq.title': 'FAQ',
+      'faq.q1': 'Do I need prior experience?',   'faq.a1': 'No experience needed — just an open mind.',
+      'faq.q2': 'What is the schedule?',          'faq.a2': 'Each camp runs 4-8 weeks, one session per week (~60-90 min).',
+      'faq.q3': 'How do I sign up?',              'faq.a3': 'Follow our official account for registration details.',
+      'leader.intro.title': 'About the Leader Programme',
+      'leader.intro.p1': 'A training programme for those who want to facilitate mindful reading communities.',
+      'leader.intro.p2': 'Becoming a leader deepens your own practice as much as it serves others.',
+      'courses.c1.tag':  'Beginner',        'courses.c1.meta': '3-Day Intro',
+      'courses.c1.title':'3-Day Introduction',
+      'courses.c1.desc': 'Start your mindfulness journey from scratch in just three days.',
+      'courses.c2.tag':  'University of Oxford', 'courses.c2.meta': 'MBCT-L · 8-Week',
+      'courses.c2.title':'8-Week Mindfulness-Based Cognitive Therapy',
+      'courses.c2.desc': 'The core programme from the Oxford Mindfulness Centre.',
+      'courses.c3.tag':  'Advanced',        'courses.c3.meta': 'Take it Further · 12-Week',
+      'courses.c3.title':'12-Week Advanced Deepening',
+      'courses.c3.desc': 'Build on the 8-week course toward a lifelong autonomous practice.',
+      'resources.books':     '\U0001f4da Book Recommendations',
+      'resources.articles':  '\U0001f4d6 Reading Guides',
+      'resources.media':     '\U0001f3ac Video / Audio',
+      'resources.media.note':'Registration required for full video access',
+      'book1.author': 'Willem Kuyken',
+      'book1.desc':   'A foundational work — how mindfulness changes lives, from a scientific lens.',
+      'book2.title':  'Mindfulness Is a Flower',
+      'book2.author': 'Jon Kabat-Zinn',
+      'book2.desc':   'A classic by the MBSR founder — guiding readers back to the present.',
+      'book3.title':  'The Miracle of Mindfulness',
+      'book3.author': 'Thich Nhat Hanh',
+      'book3.desc':   'A Zen classic — mindfulness in eating, walking, and everyday life.',
+      'article1.title': 'Prof. Willem Kuyken: Pioneer of Global Mindfulness Research',
+      'article1.desc':  'Focused on depression prevention, mental health promotion, and lifelong wellbeing',
+      'article2.title': 'What Happens When Ancient Wisdom Meets Modern Psychology?',
+      'article2.desc':  'When Eastern practice truly meets Western psychotherapy',
+      'article3.title': 'The 4-7-8 Breathing Technique',
+      'article3.desc':  'A deep-breathing method to relax, reduce anxiety, and improve sleep',
+      'media1.title': "Chapter 4 - Gratitude for Life's Beauty",
+      'media2.title': 'Natural Resources - Our Body and Mind',
+      'media3.title': 'Chapter 6: Responding to Stress and Difficulty',
+      'media4.title': 'On Perspective',
+      'media5.title': 'Chapter 9: Wise Response',
+      'media6.title': 'Chapter 12: Living a Full Life',
+
+      /* ── Footer ───────────────────────────────────────── */
+      'footer.tagline': 'From Depression Prevention to Human Flourishing',
+      'footer.copy':    '© 2025 Mindfulness for Life · Oxford Mindfulness Centre',
+
+      /* ── mindfulness-flourishing.html ─────────────────── */
+      'fl.back':   '← Back to Home',
+      'fl.tag':    'MINDFULNESS · HUMAN FLOURISHING',
+      'fl.title':  'Mindfulness & Human Flourishing',
+      'fl.sub':    'From Depression Prevention to Human Flourishing',
+      'fl.meta1':  '✍ Willem Kuyken · Director, Oxford Mindfulness Centre',
+      'fl.meta2':  '📖 The Maturing of Mindfulness-Based Cognitive Therapy',
+
+      'fl.quote1':     'Humanity has never lived longer, traveled further, or known more — yet for many people, this is accompanied by a sense of distraction and disconnection from what truly matters in life.',
+      'fl.p1':         'Parents worry endlessly about their children\'s futures. At work, people feel overwhelmed and anxious about what lies ahead. Even when life looks fine on the surface, something essential seems to be missing. This paradox defines our age.',
+      'fl.stat1.num':  '72 yrs',   'fl.stat1.label': 'Global average lifespan (as of 2020)',
+      'fl.stat2.num':  '4,000 wks','fl.stat2.label': 'Approximate weeks in a lifetime',
+      'fl.stat3.num':  '26,000 days','fl.stat3.label':'Approximate days in a lifetime',
+      'fl.p2':         'Faced with this finite and precious life, we must ask: what does it mean to live well?',
+
+      'fl.sec2.title': 'From Treatment to Prevention to Flourishing',
+      'fl.sec2.p1':    'Mindfulness-Based Cognitive Therapy (MBCT) was originally developed to prevent depression. Over the past 25 years, we have gradually discovered that it reveals a deeper question: how can humans live well across a whole lifetime?',
+      'fl.sec2.h2':    'The Global Mental Health Challenge',
+      'fl.sec2.p2':    'The WHO estimates that depression is the second leading cause of disability-adjusted life years (DALYs) globally. Approximately 1 billion people are affected. Most mental health problems begin in late adolescence and tend to persist throughout life.',
+      'fl.sec2.p3':    'Oxford University is at the forefront of developing mental health interventions, particularly in cognitive and mindfulness-based therapies. Our research shows these approaches can match medication in effectiveness, equipping people with lasting life skills incorporated into clinical guidelines worldwide.',
+      'fl.sec2.h3':    'A Concerning Reality',
+      'fl.sec2.p4':    'Yet mental health is deteriorating overall, especially among young people. A $5.6 trillion global wellness industry has emerged in response — but due to low engagement and failure to draw on the best of psychological science and contemplative traditions, it often fails to deliver sustainable, meaningful change.',
+
+      'fl.sec3.title': 'We Can — and Must — Do Better',
+      'fl.sec3.p':     'To genuinely improve human mental health, we need to:',
+      'fl.l1.title':   'Continuously improve psychological interventions',
+      'fl.l1.desc':    'Refine evidence-based mindfulness and cognitive therapies to ensure their effectiveness and accessibility.',
+      'fl.l2.title':   'Ensure broad accessibility',
+      'fl.l2.desc':    'Make these resources available to everyone — regardless of cultural background or economic circumstances.',
+      'fl.l3.title':   'Prevent problems before they arise',
+      'fl.l3.desc':    'Build lifelong mental health capabilities starting from adolescence.',
+      'fl.l4.title':   'Promote health and flourishing at scale',
+      'fl.l4.desc':    'Expand the goal from "eliminating illness" to "enabling human beings to thrive".',
+
+      'fl.sec4.title': 'The Flourishing Continuum',
+      'fl.sec4.p1':    'We need to provide resources for individuals and organizations at every point on the continuum from depression to thriving:',
+      'fl.sec4.p2':    'Our research is progressively answering key questions: what truly works? How can mental health interventions be scaled? What are the most important next steps?',
+
+      'fl.sec5.title': 'A Vision for 2050',
+      'fl.sec5.quote': 'A world no longer dominated by the devastating impact of depression — a world where individuals can flourish and have the resources to meet the challenges of our time.',
+      'fl.sec5.p':     'Mindfulness for Life integrates ancient wisdom and modern psychology to: teach lifelong skills for navigating daily challenges; foster resilience, social connection, and values-driven living in individuals, families, schools, workplaces, and communities; and provide accessible, engaging, and inclusive learning experiences.',
+
+      'fl.sec6.title': 'Mindfulness for Life · Three-Tier Curriculum',
+      'fl.sec6.p':     'The Mindfulness for Life programme can be adapted to different life stages and contexts, evolving with the individual over time.',
+      'fl.l1.title': 'Mindfulness Introduction',
+      'fl.l1.desc':  'For everyone — teaching foundational skills. No prior mindfulness experience needed.',
+      'fl.l2.title': 'Mindfulness for Life · 8-Session Programme',
+      'fl.l2.desc':  'Focused on deeper engagement and life integration. Based on the Oxford University MBCT-L curriculum.',
+      'fl.l3.title': '12-Session Advanced Group Programme',
+      'fl.l3.desc':  'A systematic, ongoing lifelong learning pathway for those wishing to deepen their practice.',
+      'fl.toc.1': 'The Paradox of Our Age',
+      'fl.toc.2': 'From Treatment to Flourishing',
+      'fl.toc.3': 'We Must Do Better',
+      'fl.toc.4': 'The Flourishing Spectrum',
+      'fl.toc.5': 'Vision for 2050',
+      'fl.toc.6': 'Three-Tier Curriculum',
+      'fl.rel.c1': '🌱 3-Day Mindfulness Intro',
+      'fl.rel.c2': '🌿 8-Week MBCT-L Programme',
+      'fl.rel.c3': '🌳 12-Week Advanced Deepening',
+
+      /* ── fl intro ── */
+      'fl.intro.p1': 'Humanity has never lived longer, travelled further, or known more — yet for many, this comes with a sense of distraction and disconnection from what truly matters.',
+      'fl.intro.p2': 'Parents worry about their children\'s futures; people feel overwhelmed at work; even when life "looks fine" on the surface, something essential seems missing. This paradox defines our age.',
+      'fl.intro.p3': 'Faced with a finite and precious life, we must ask: what does it mean to live well?',
+      'fl.sec5.vision': 'A world no longer dominated by the devastating effects of depression — a world where individuals can flourish and have the resources to meet the challenges of our time.',
+
+      /* ── reading-camp extras ── */
+      'rc.hero.btn':    'Join the Reading Circle / Leader Programme',
+      'rc.plan.desc':   'Reading as a gateway, leading as a deepening — the heart of mindful living',
+      'rc.books.heading': 'Reading List',
+      'rc.b1.sub':      'Rebuilding Life\'s Wisdom',
+      'rc.b1.title':    'Mindfulness for Life (Oxford)',
+      'rc.b2.sub':      'Mindfulness for Life',
+      'rc.lc1.desc':    'Organise and facilitate local mindfulness reading groups — guiding participants through systematic mindful reading and practice.',
+      'rc.lc2.desc':    'Become an ambassador for mindfulness, spreading the values of Mindfulness for Life in your city.',
+      'rc.lc3.desc':    'Build and maintain a local learning community, rooting mindfulness practice in more people\'s lives.',
+      'rc.lc4.desc':    'Become an authorised partner of Mindfulness Mingxin (Beijing) Education Consulting Co., Ltd.',
+      'rc.r1.text':     '<strong>Mindfulness Reading Circle Facilitator:</strong> Organise, plan, and lead local reading camp activities',
+      'rc.r2.text':     '<strong>Mindfulness Cultural Ambassador:</strong> Promote mindfulness and the Mindfulness for Life brand in your city',
+      'rc.r3.text':     '<strong>Learning Community Builder:</strong> Establish, maintain, and grow a local Mindfulness for Life community',
+      'rc.r4.text':     '<strong>Brand Partner:</strong> Become an authorised partner of Mindfulness Mingxin (Beijing) Education Consulting Co., Ltd.',
+      /* ── book panels EN ── */
+      'rc.b1.panel.title': 'Mindfulness for Life (Oxford): Rebuilding Life\'s Wisdom',
+      'rc.b1.panel.authors': 'Christina Feldman & Willem Kuyken | Translated by Ma Jiatong',
+      'rc.b1.p1': 'Life is full of challenges — illness, depression, anxiety, fear, addiction. But we don\'t have to struggle alone. We can take back control of our lives.',
+      'rc.b1.p2': 'Willem Kuyken and Christina Feldman share the wisdom to rebuild life, guiding us through common pain and difficulty, and providing a roadmap to live more fully.',
+      'rc.b1.p3': 'Grounded in MBSR and MBCT, the book blends ancient wisdom with psychology, offering mindfulness practices and real-life transformation stories — to help you live with kindness, compassion, joy, and equanimity.',
+      'rc.endorsements': 'Endorsements',
+      'rc.b1.q1': '"A landmark work. With remarkable clarity and depth, this book illuminates the nature and roots of mindfulness, its ethical foundations, clinical applications, growing scientific evidence, and profound healing potential."',
+      'rc.b1.q1.attr': '— Jon Kabat-Zinn, founder of Mindfulness-Based Stress Reduction (MBSR)',
+      'rc.b1.q2': '"The authors weave together deep meditative practice, psychological expertise, and cutting-edge neuroscience to create a complete map of the mind."',
+      'rc.b1.q2.attr': '— Joseph Goldstein, co-founder of the Insight Meditation Society',
+      'rc.b1.q3': '"This book provides the panoramic view of mindfulness practice so urgently needed for the 21st century. Essential reading for all students and teachers of mindfulness."',
+      'rc.b1.q3.attr': '— Mark Williams, PhD, Emeritus Professor of Clinical Psychology, University of Oxford',
+      'rc.b1.q4': '"This inspiring work bridges Buddhist psychology and contemporary science, with the potential to fundamentally shift our perspective and alleviate suffering for individuals and communities."',
+      'rc.b1.q4.attr': '— Rebecca Crane, PhD, Director of the Centre for Mindfulness Research and Practice, Bangor University',
+      'rc.authors.label': 'Authors & Translator',
+      'rc.b1.a1.name': 'Christina Feldman · Author',
+      'rc.b1.a1.bio': 'A renowned senior mindfulness teacher. She has led mindfulness postgraduate programmes at the University of Exeter and Radboud University, and is a core teacher at Bodhi College, UK.',
+      'rc.b1.a2.name': 'Willem Kuyken · Author',
+      'rc.b1.a2.bio': 'Ritblat Professor of Mindfulness and Psychological Science and Director of the Oxford Mindfulness Centre, University of Oxford. Author of 150+ peer-reviewed papers; consistently ranked among the world\'s top 1% most-cited scientists.',
+      'rc.b1.t1.name': 'Ma Jiatong · Translator',
+      'rc.b1.t1.bio': 'Oxford Mindfulness Foundation certified MBCT teacher, qualified MBSR teacher, and registered mindfulness supervisor with the UK Mindfulness Network. Standing committee member of the Chinese Life Care Association and the Beijing Mental Health Association\'s Contemplative Practice Committee.',
+      'rc.b2.panel.title': 'Mindfulness for Life',
+      'rc.b2.panel.authors': 'Willem Kuyken, PhD | Translated by Ma Jiatong',
+      'rc.b2.p1': 'Mindfulness is easy to begin — most people feel benefits almost immediately. Yet why do so many enthusiastic starters quit after a short time? Prof. Kuyken argues it\'s because traditional mindfulness training is too disconnected from daily life.',
+      'rc.b2.p2': 'This "next-generation" mindfulness guide brings mindfulness back into everyday life, teaching core skills in ways that fit naturally into your day. Dr Kuyken provides stepping stones to help you build a sustainable, purposeful, and rewarding personal practice.',
+      'rc.b2.p3': 'Weaving ancient wisdom with modern psychological science, the book includes real stories, classic quotes, reflective questions, and engaging guided practices — with audio tracks and companion website videos to deepen your practice.',
+      'rc.b2.q1': '"A trustworthy and accessible roadmap for navigating life\'s ups and downs with greater intention and wisdom. Above all, it teaches us to cultivate self-agency."',
+      'rc.b2.q1.attr': '— Jon Kabat-Zinn, founder of MBSR, author of Wherever You Go, There You Are',
+      'rc.b2.q2': '"This book is not just about inner change — it teaches us how to live. Dr Kuyken offers tools to shift from judgment and aversion toward curiosity and kindness."',
+      'rc.b2.q2.attr': '— Christina Feldman, author of Boundless Heart',
+      'rc.b2.q3': '"Dr Kuyken illuminates why and how mindfulness can help you reconnect with your life through a sense of love and renewal. Essential reading for beginners and seasoned practitioners alike."',
+      'rc.b2.q3.attr': '— Mark Williams, co-author of The Mindful Way Through Depression',
+      'rc.b2.a1.name': 'Willem Kuyken · Author',
+      'rc.b2.a1.bio': 'Ritblat Professor of Mindfulness and Psychological Science and Director of the Oxford Mindfulness Centre. Author of 150+ papers; consistently among the world\'s top 1% most-cited scientists. Author of Mindfulness for Life; co-author of the Oxford Mindfulness course.',
+      'rc.b2.t1.name': 'Ma Jiatong · Translator',
+      'rc.b2.t1.bio': 'Oxford Mindfulness Foundation certified MBCT teacher, qualified MBSR teacher, registered UK mindfulness supervisor, and contracted mindfulness teacher trainer at Bangor University. Standing committee member of the Chinese Life Care Association and the Beijing Mental Health Association\'s Contemplative Practice Committee.',
+      'fl.c1.title':   'Introductory Mindfulness Course',
+      'fl.c1.desc':    'For everyone — teaches foundational skills with no prior mindfulness experience required.',
+      'fl.c2.title':   'Mindfulness for Life · 8-Session Course',
+      'fl.c2.desc':    'Focused on deeper engagement and life integration, based on the Oxford MBCT-L core curriculum.',
+      'fl.c3.title':   '12-Session Advanced Group Course',
+      'fl.c3.desc':    'A structured, ongoing lifelong learning pathway for those wishing to deepen their practice.',
+
+      'fl.cta.title':  'Begin Your Mindfulness Journey',
+      'fl.cta.desc':   'Start with one class and discover how mindfulness can transform your life',
+      'fl.cta.btn':    'Explore Courses →',
+
+      'fl.toc.label':  'Contents',
+      'fl.toc1': 'The Paradox of Our Age', 'fl.toc2': 'From Treatment to Flourishing',
+      'fl.toc3': 'We Must Do Better',      'fl.toc4': 'The Flourishing Continuum',
+      'fl.toc5': 'Vision for 2050',         'fl.toc6': 'Three-Tier Curriculum',
+      'fl.author.label': 'About the Author',
+      'fl.author.role':  'Director of Oxford Mindfulness Centre; leading international researcher in MBCT',
+      'fl.related.label':'Related Courses',
+      'fl.related.c1':   '🌱 3-Day Intro Course',
+      'fl.related.c2':   '🌿 8-Week MBCT-L',
+      'fl.related.c3':   '🌳 12-Week Advanced',
+
+      /* ── reading-camp.html ────────────────────────────── */
+      'rc.hero.title': 'Mindfulness for Life — A Life Well Lived',
+      'rc.hero.cta':   'Join Reading / Leader Programme',
+      'rc.plan.title': 'Reading / Leader Programme',
+      'rc.plan.sub':   'Enter through reading, deepen through leading — the heart of Mindfulness for Life',
+      'rc.books.label':'Reading List',
+
+      'rc.b1.sub':    'Rebuilding the Wisdom of Life',
+      'rc.b1.title':  'Mindfulness for Life (Chinese Ed.)',
+      'rc.b1.authors':'Christina Feldman & Willem Kuyken\nTr. Ma Jiatong',
+      'rc.b2.sub':    'Mindfulness for Life',
+      'rc.b2.title':  'Mindfulness for Life',
+      'rc.b2.author': 'Willem Kuyken, PhD',
+
+      'rc.p1.title':   'Mindfulness for Life — Rebuilding the Wisdom of Life',
+      'rc.p1.authors': 'Christina Feldman · Willem Kuyken | Tr. Ma Jiatong',
+      'rc.p1.p1': 'Life is full of difficulties — illness, depression, anxiety, doubt, fear, addiction. But we don\'t have to be trapped by them. We can take charge of our lives.',
+      'rc.p1.p2': 'Willem Kuyken and Christina Feldman share the wisdom to rebuild life, guiding us through common pain and suffering, offering a roadmap for better self-mastery.',
+      'rc.p1.p3': 'Drawing on MBSR and MBCT, blending ancient wisdom with psychology, this book includes mindfulness practices and real transformation stories — helping you bring your mindful self into the light.',
+      'rc.p1.endorse': 'Endorsements',
+      'rc.p1.authors_label': 'Authors & Translator',
+
+      'rc.p2.title':   'Mindfulness for Life',
+      'rc.p2.authors': 'Willem Kuyken | Tr. Ma Jiatong',
+      'rc.p2.p1': 'Mindfulness is easy to start, and people often feel benefits almost immediately. But why do so many early enthusiasts drop their practice after a short time? Professor Willem Kuyken argues it\'s because traditional mindfulness training is too far removed from everyday life.',
+      'rc.p2.p2': 'This "next-generation" mindfulness guide brings mindfulness back to daily life, teaching core skills in ways that fit easily into daily routines — helping you build a sustainable, purposeful, and rewarding personal practice for years to come.',
+      'rc.p2.p3': 'Weaving ancient wisdom with modern science, the book includes real stories, classic quotes, reflective questions, audio tracks, and video materials — helping you cultivate and deepen mindfulness practice in your daily life.',
+      'rc.p2.endorse': 'Endorsements',
+      'rc.p2.authors_label': 'Authors & Translator',
+
+      'rc.recruit.title':  'Join the Reading Camp',
+      'rc.recruit.header': 'What you will gain:',
+      'rc.r1.strong': 'Mindful Reading Camp Facilitator:',
+      'rc.r1.text':   'Organise, plan, and lead mindfulness reading camp activities in your area',
+      'rc.r2.strong': 'Mindfulness Culture Ambassador:',
+      'rc.r2.text':   'Promote mindfulness in your city and spread the Mindfulness for Life brand values',
+      'rc.r3.strong': 'Learning Community Builder:',
+      'rc.r3.text':   'Establish, maintain, and grow the local Mindfulness for Life learning community',
+      'rc.r4.strong': 'Brand Partner:',
+      'rc.r4.text':   'Become an authorised partner of Mindfulness Mingxin (Beijing) Education Consulting Co., Ltd.',
+      'rc.r1.label': 'Mindfulness Reading Circle Facilitator: ',
+      'rc.r2.label': 'Mindfulness Cultural Ambassador: ',
+      'rc.r3.label': 'Learning Community Builder: ',
+      'rc.r4.label': 'Brand Partner: ',
+
+      'rc.leader.title': 'Become a Reading Camp Leader',
+      'rc.leader.desc':  'Join our Leader Programme and spread the power of mindfulness across your community together with like-minded peers.',
+      'rc.lc1.title': 'Organise & Facilitate',
+      'rc.lc1.desc':  'Organise local mindfulness reading camps and lead groups in systematic mindful reading and practice.',
+      'rc.lc2.title': 'Cultural Outreach',
+      'rc.lc2.desc':  'Become a mindfulness advocate, promoting Mindfulness for Life values in your city.',
+      'rc.lc3.title': 'Community Building',
+      'rc.lc3.desc':  'Establish and nurture a local learning community so mindfulness practice takes root in more lives.',
+      'rc.lc4.title': 'Authorised Partnership',
+      'rc.lc4.desc':  'Receive official authorisation from Mindfulness Mingxin (Beijing) Education Consulting Co., Ltd.',
+
+      'rc.cta.title': 'Ready to Begin?',
+      'rc.cta.desc':  'Join the Mindfulness for Life Reading Camp and embark on a journey of deep reading and practice',
+      'rc.cta.btn':   'Join Now →',
+    },
+  };
+
+  // ─────────────────────────────────────────────────────────────
+  //  Core engine
+  // ─────────────────────────────────────────────────────────────
+  const STORAGE_KEY = 'mfl_lang';
+
+  function t(key, lang) {
+    return (dict[lang] && dict[lang][key]) || (dict['zh'] && dict['zh'][key]) || key;
+  }
+
+  function applyLang(lang) {
+    // text content — only replace leaf nodes (no child elements) to avoid wiping sub-elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = t(key, lang);
+      if (el.children.length === 0) {
+        el.textContent = val;
+      }
+      // elements with children are skipped — use data-i18n-html for those
+    });
+    // innerHTML (for markup inside translations)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      el.innerHTML = t(key, lang);
+    });
+    // <html lang> attribute
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    // toggle button label
+    const btn = document.getElementById('langToggleBtn');
+    if (btn) btn.textContent = lang === 'zh' ? 'EN' : '中';
+    // persist
+    localStorage.setItem(STORAGE_KEY, lang);
+    window.__mflLang = lang;
+  }
+
+  function init() {
+    const saved = localStorage.getItem(STORAGE_KEY) || 'zh';
+    applyLang(saved);
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  Public API
+  // ─────────────────────────────────────────────────────────────
+  window.setLang = applyLang;
+  window.toggleLang = function () {
+    applyLang((window.__mflLang || 'zh') === 'zh' ? 'en' : 'zh');
+  };
+
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
