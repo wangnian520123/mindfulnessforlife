@@ -129,9 +129,9 @@
       'article3.desc': '是一种深呼吸技术，旨在帮助放松身心、减轻焦虑和促进睡眠',
       'media.badge': '视频',
       'media1.title': '第四章-感恩生命之美',
-      'media2.title': '自然资源-我们的身与心',
+      'media2.title': '第五章-自然资源-我们的身与心',
       'media3.title': '第六章：我们如何应对压力和困境',
-      'media4.title': '关于"视角"',
+      'media4.title': '第八章-换个视角看世界',
       'media5.title': '第九章：明智的回应',
       'media6.title': '第十二章：活出丰盈的人生',
 
@@ -490,9 +490,9 @@
       'article3.desc': 'A deep-breathing technique designed to promote relaxation, reduce anxiety, and improve sleep',
       'media.badge': 'Video',
       'media1.title': 'Chapter 4 — Gratitude for Life\'s Beauty',
-      'media2.title': 'Natural Resources — Our Body and Mind',
+      'media2.title': 'Chapter 5 - Natural Resources — Our Body and Mind',
       'media3.title': 'Chapter 6: How We Respond to Stress and Challenges',
-      'media4.title': 'On "Perspective"',
+      'media4.title': 'Chapter 8 - A New Perspective on the World',
 
       /* ── Teachers & About ─────────────────────────────── */
       'teachers.label': 'TEACHERS & NETWORK',
@@ -578,9 +578,9 @@
       'article3.title': 'The 4-7-8 Breathing Technique',
       'article3.desc':  'A deep-breathing method to relax, reduce anxiety, and improve sleep',
       'media1.title': "Chapter 4 - Gratitude for Life's Beauty",
-      'media2.title': 'Natural Resources - Our Body and Mind',
+      'media2.title': 'Chapter 5 - Natural Resources - Our Body and Mind',
       'media3.title': 'Chapter 6: Responding to Stress and Difficulty',
-      'media4.title': 'On Perspective',
+      'media4.title': 'Chapter 8 - A New Perspective on the World',
       'media5.title': 'Chapter 9: Wise Response',
       'media6.title': 'Chapter 12: Living a Full Life',
 
