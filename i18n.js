@@ -532,7 +532,7 @@
       'about.vision.title':  'Vision & Mission',
       'about.vision.desc':   'To make mindfulness accessible for everyone — from preventing depression to promoting human flourishing.',
       'about.volunteer.title': 'Join as a Volunteer',
-      'about.volunteer.desc':  'Joining the volunteer team not only deepens your own mindfulness practice through service, but more meaningfully helps more people discover mindfulness. Special thanks to our volunteers who contributed to book and video translations and supported Willem\'s Mindfulness Life China Tour: 王海兰, Xinyi, 柳懿轩, 王耀坤, 杨漪, Cici.',
+      'about.volunteer.desc':  'Joining the volunteer team not only deepens your own mindfulness practice through service, but more meaningfully helps more people discover mindfulness. Special thanks to our volunteers who contributed to book and video translations and supported Willem\'s Mindfulness Life China Tour: Wang Hailan, Xinyi, Liu Yixuan, Wang Yaokun, Yang Yi, Cici.',
       'about.volunteer.btn':   'Join Us',
       'about.contact.title': 'Contact Us',
       'about.contact.wechat':'Add WeChat — note: Mindfulness Life',
