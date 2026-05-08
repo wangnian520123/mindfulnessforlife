@@ -72,16 +72,16 @@ a { color: inherit; text-decoration: none; }
 .hero-img { width: 100%; height: 100%; object-fit: cover; }
 .hero-grain { display: none; }
 .hero-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(250,248,244,0.3) 0%, rgba(250,248,244,0.6) 50%, rgba(250,248,244,0.85) 100%); }
-.hero-content { position: relative; text-align: center; color: var(--ink); padding: 0 1.5rem; }
-.hero-tag { display: inline-block; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--moss); margin-bottom: 2rem; border: 1px solid rgba(61,90,69,0.2); padding: 0.5rem 1.5rem; border-radius: 100px; background: rgba(61,90,69,0.04); }
+.hero-content { position: relative; text-align: center; color: #fff; padding: 0 1.5rem; }
+.hero-tag { display: inline-block; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.25); padding: 0.5rem 1.5rem; border-radius: 100px; background: rgba(255,255,255,0.08); }
 .hero h1 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
-.hero-line { display: block; font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--ink); }
+.hero-line { display: block; font-size: clamp(2.5rem, 6vw, 4.5rem); color: #fff; }
 .hero-line--accent { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--accent); font-size: clamp(2rem, 5vw, 3.5rem); }
-.hero-sub { font-family: var(--font-serif); font-size: clamp(1rem, 1.8vw, 1.3rem); color: var(--ink-soft); margin-bottom: 1rem; letter-spacing: 0.1em; }
+.hero-sub { font-family: var(--font-serif); font-size: clamp(1rem, 1.8vw, 1.3rem); color: rgba(255,255,255,0.85); margin-bottom: 1rem; letter-spacing: 0.1em; }
 .hero-desc { font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.9; opacity: 0.8; max-width: 500px; margin: 0 auto 2.5rem; }
 .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); }
-.scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--ink-muted), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+.scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent); animation: scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.4; transform: scaleY(0.6); } }
 
 /* ==================== Buttons ==================== */
@@ -330,3 +330,4 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+ 
